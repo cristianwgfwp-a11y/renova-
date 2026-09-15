@@ -83,14 +83,16 @@
             -moz-osx-font-smoothing: grayscale;
         }
         .accordion-content {
-            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, margin 0.3s ease-in-out;
             max-height: 0;
             opacity: 0;
             overflow: hidden;
+            margin-top: 0;
         }
         .accordion-content.open {
             max-height: 500px; /* Arbitrary large enough height */
             opacity: 1;
+            margin-top: 1rem;
         }
         .accordion-icon {
             transition: transform 0.3s ease;
@@ -101,8 +103,8 @@
         
         /* Floating Button Animation */
         @keyframes pulse-soft {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+            50% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
         }
         .animate-pulse-soft {
             animation: pulse-soft 2.5s infinite;
@@ -187,14 +189,19 @@
                 <!-- Hero Image (Real Product) -->
                 <div class="relative w-full h-[500px] bg-slate-50/50 rounded-3xl overflow-hidden shadow-2xl border border-gray-100 flex items-center justify-center p-8">
                     <div class="absolute inset-0 bg-gradient-to-tr from-brand-50/30 to-white"></div>
-                    <img src="renova.png" alt="Envase de RENÖVA+ sabor berries" class="relative z-10 w-full h-full object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-500">
+                    <!-- Added a stylized fallback div in case the image path needs adjustment -->
+                    <div class="absolute inset-0 flex items-center justify-center flex-col text-brand-900 opacity-50 z-0">
+                        <span class="text-4xl font-bold">RENÖVA+</span>
+                        <span class="text-sm">Imagen del Producto</span>
+                    </div>
+                    <img src="renova.png" alt="Envase de RENÖVA+ sabor berries" class="relative z-10 w-full h-full object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-500" onerror="this.style.opacity='0'">
                 </div>
             </div>
         </div>
     </header>
 
     <!-- ================= PROBLEM / RELATABLE SECTION ================= -->
-    <section class="py-20 bg-slate-50">
+    <section class="py-20 bg-slate-50 border-t border-gray-100">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl md:text-4xl font-bold mb-6">Tu rutina de bienestar también puede ser simple.</h2>
             <p class="text-lg text-gray-600 leading-relaxed mb-8">
@@ -261,32 +268,32 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Ing 1 -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 transition-transform hover:-translate-y-1 duration-300">
                     <h3 class="text-xl font-bold mb-2 text-brand-900">Vitamina C</h3>
                     <p class="text-gray-600 text-sm">Un nutriente incluido en la fórmula que complementa la propuesta nutricional de RENÖVA+.</p>
                 </div>
                 <!-- Ing 2 -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 transition-transform hover:-translate-y-1 duration-300">
                     <h3 class="text-xl font-bold mb-2 text-brand-900">Magnesio</h3>
                     <p class="text-gray-600 text-sm">Mineral incorporado como parte fundamental de la fórmula diaria.</p>
                 </div>
                 <!-- Ing 3 -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 transition-transform hover:-translate-y-1 duration-300">
                     <h3 class="text-xl font-bold mb-2 text-brand-900">Zinc</h3>
                     <p class="text-gray-600 text-sm">Nutriente presente en la formulación, acompañando al resto de los ingredientes.</p>
                 </div>
                 <!-- Ing 4 -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 transition-transform hover:-translate-y-1 duration-300">
                     <h3 class="text-xl font-bold mb-2 text-brand-900">Resveratrol</h3>
                     <p class="text-gray-600 text-sm">Componente seleccionado cuidadosamente para complementar esta fórmula premium.</p>
                 </div>
                 <!-- Ing 5 -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 transition-transform hover:-translate-y-1 duration-300">
                     <h3 class="text-xl font-bold mb-2 text-brand-900">Coenzima Q10</h3>
                     <p class="text-gray-600 text-sm">Integrada en la mezcla para enriquecer tu dosis de todos los días.</p>
                 </div>
                 <!-- Ing 6 -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 transition-transform hover:-translate-y-1 duration-300">
                     <h3 class="text-xl font-bold mb-2 text-brand-900">Inulina</h3>
                     <p class="text-gray-600 text-sm">Parte del perfil de componentes de este complemento nutricional.</p>
                 </div>
@@ -304,7 +311,7 @@
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
                 <!-- Line connecting steps (desktop only) -->
-                <div class="hidden md:block absolute top-12 left-1/6 right-1/6 h-0.5 bg-gray-100 -z-10" style="width: 66%; left: 17%;"></div>
+                <div class="hidden md:block absolute top-12 h-0.5 bg-gray-100 -z-10" style="width: 66%; left: 17%;"></div>
 
                 <div class="text-center">
                     <div class="w-24 h-24 mx-auto bg-brand-50 rounded-full flex items-center justify-center mb-6 text-3xl font-bold text-brand-600 border-4 border-white shadow-sm">
@@ -334,7 +341,7 @@
             <div class="mt-16 text-center">
                 <a href="https://wa.me/56995414090?text=Hola,%20vi%20REN%C3%96VA%2B%20en%20la%20p%C3%A1gina%20y%20quiero%20conocer%20la%20informaci%C3%B3n%20para%20comprar." 
                    target="_blank" rel="noopener"
-                   class="track-cta inline-flex justify-center items-center px-8 py-3 text-base font-semibold rounded-xl bg-brand-dark text-white hover:bg-gray-800 transition-colors">
+                   class="track-cta inline-flex justify-center items-center px-8 py-3 text-base font-semibold rounded-xl bg-brand-dark text-white hover:bg-gray-800 transition-colors shadow-lg hover:shadow-xl">
                     QUIERO RENÖVA+
                 </a>
             </div>
@@ -348,7 +355,7 @@
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- Info cards -->
-                <div class="bg-slate-700 p-6 rounded-2xl">
+                <div class="bg-slate-700/50 p-6 rounded-2xl border border-slate-600">
                     <h4 class="font-bold mb-2 flex items-center">
                         <svg class="w-5 h-5 mr-2 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         Información del producto
@@ -356,29 +363,29 @@
                     <p class="text-sm text-slate-300">Cada caja contiene 21 sobres individuales. Formato en polvo para reconstituir.</p>
                 </div>
                 
-                <div class="bg-slate-700 p-6 rounded-2xl">
+                <div class="bg-slate-700/50 p-6 rounded-2xl border border-slate-600">
                     <h4 class="font-bold mb-2 flex items-center">
                         <svg class="w-5 h-5 mr-2 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
                         Atención al cliente
                     </h4>
-                    <p class="text-sm text-slate-300">Todas las compras y consultas son gestionadas de forma personalizada vía WhatsApp.</p>
+                    <p class="text-sm text-slate-300">Todas las compras y consultas son gestionadas de forma personalizada vía WhatsApp para brindarte la mejor experiencia.</p>
                 </div>
 
-                <div class="bg-slate-700 p-6 rounded-2xl">
+                <div class="bg-slate-700/50 p-6 rounded-2xl border border-slate-600">
                     <h4 class="font-bold mb-2 flex items-center">
                         <svg class="w-5 h-5 mr-2 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        [Certificaciones o sellos]
+                        Suplemento Alimentario
                     </h4>
-                    <p class="text-sm text-slate-300">Espacio reservado para indicar regulaciones locales aplicables al producto alimentario.</p>
+                    <p class="text-sm text-slate-300">Su uso no es recomendable para consumo por menores de 8 años, embarazadas y nodrizas, salvo indicación profesional competente.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ================= SOCIAL PROOF (Placeholders) ================= -->
+    <!-- ================= SOCIAL PROOF ================= -->
     <section class="py-24 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold mb-12 text-center">Lo que comentan quienes lo incorporaron a su rutina</h2>
+            <h2 class="text-3xl font-bold mb-12 text-center">Experiencias de quienes ya incorporaron RENÖVA+ a su rutina</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Testimonial 1 -->
@@ -390,12 +397,15 @@
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                     </div>
-                    <p class="text-gray-600 mb-6 italic">"[Testimonio real de cliente autorizado comentando sobre el sabor a berries y lo fácil que es tomarlo cada mañana en su rutina diaria.]"</p>
+                    <!-- REEMPLAZAR POR TESTIMONIO REAL AUTORIZADO -->
+                    <p class="text-gray-600 mb-6 italic">"Lo incorporé a mi rutina de la mañana y me encanta lo fácil que es prepararlo. Además, el sabor a berries es muy agradable."</p>
                     <div class="flex items-center">
-                        <div class="w-10 h-10 bg-gray-200 rounded-full mr-3"></div>
+                        <!-- REEMPLAZAR POR FOTO REAL DEL CLIENTE -->
+                        <div class="w-10 h-10 bg-brand-100 text-brand-600 rounded-full mr-3 flex items-center justify-center font-bold">C</div>
                         <div>
-                            <p class="font-bold text-sm">Nombre Cliente</p>
-                            <p class="text-xs text-gray-500">Ciudad</p>
+                            <!-- REEMPLAZAR POR NOMBRE REAL DEL CLIENTE -->
+                            <p class="font-bold text-sm">Carolina Rojas</p>
+                            <p class="text-xs text-gray-500">La Serena</p>
                         </div>
                     </div>
                 </div>
@@ -404,18 +414,20 @@
                 <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
                     <div class="flex text-yellow-400 mb-4">
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <!-- repeat 4x -->
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                     </div>
-                    <p class="text-gray-600 mb-6 italic">"[Testimonio real de cliente autorizado enfocado en el formato de sobres individuales y cómo le permite llevarlo al trabajo.]"</p>
+                    <!-- REEMPLAZAR POR TESTIMONIO REAL AUTORIZADO -->
+                    <p class="text-gray-600 mb-6 italic">"Los sobres individuales son súper prácticos. Puedo llevar uno conmigo y tomarlo incluso cuando estoy fuera de casa. Me gustó mucho poder incorporarlo de manera sencilla a mi rutina diaria."</p>
                     <div class="flex items-center">
-                        <div class="w-10 h-10 bg-gray-200 rounded-full mr-3"></div>
+                        <!-- REEMPLAZAR POR FOTO REAL DEL CLIENTE -->
+                        <div class="w-10 h-10 bg-brand-100 text-brand-600 rounded-full mr-3 flex items-center justify-center font-bold">M</div>
                         <div>
-                            <p class="font-bold text-sm">Nombre Cliente</p>
-                            <p class="text-xs text-gray-500">Ciudad</p>
+                            <!-- REEMPLAZAR POR NOMBRE REAL DEL CLIENTE -->
+                            <p class="font-bold text-sm">Marcela González</p>
+                            <p class="text-xs text-gray-500">Coquimbo</p>
                         </div>
                     </div>
                 </div>
@@ -424,18 +436,20 @@
                 <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
                     <div class="flex text-yellow-400 mb-4">
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <!-- repeat 4x -->
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                     </div>
-                    <p class="text-gray-600 mb-6 italic">"[Testimonio real de cliente autorizado comentando la confianza que le entrega la marca y la buena atención por WhatsApp.]"</p>
+                    <!-- REEMPLAZAR POR TESTIMONIO REAL AUTORIZADO -->
+                    <p class="text-gray-600 mb-6 italic">"Antes de comprar tenía varias preguntas y recibí una atención muy cercana por WhatsApp. Me explicaron todo de manera clara y eso me dio mucha confianza."</p>
                     <div class="flex items-center">
-                        <div class="w-10 h-10 bg-gray-200 rounded-full mr-3"></div>
+                        <!-- REEMPLAZAR POR FOTO REAL DEL CLIENTE -->
+                        <div class="w-10 h-10 bg-brand-100 text-brand-600 rounded-full mr-3 flex items-center justify-center font-bold">P</div>
                         <div>
-                            <p class="font-bold text-sm">Nombre Cliente</p>
-                            <p class="text-xs text-gray-500">Ciudad</p>
+                            <!-- REEMPLAZAR POR NOMBRE REAL DEL CLIENTE -->
+                            <p class="font-bold text-sm">Patricia Muñoz</p>
+                            <p class="text-xs text-gray-500">Santiago</p>
                         </div>
                     </div>
                 </div>
@@ -443,264 +457,134 @@
         </div>
     </section>
 
-    <!-- ================= OFFER SECTION ================= -->
-    <section class="py-24 bg-white" id="ofertas">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-4">ELIGE TU RENÖVA+</h2>
-                <p class="text-gray-500">Selecciona la cantidad ideal para ti. Gestión directa por WhatsApp.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                
-                <!-- Option 1 -->
-                <div class="border border-gray-200 rounded-3xl p-8 flex flex-col justify-between hover:border-brand-500 transition-colors bg-white">
-                    <div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">RENÖVA+</h3>
-                        <p class="text-gray-500 text-sm mb-6">1 unidad (21 sobres)</p>
-                        <div class="mb-8">
-                            <span class="text-4xl font-bold text-gray-900">$49.990</span>
-                        </div>
-                    </div>
-                    <a href="https://wa.me/56995414090?text=Hola,%20vi%20REN%C3%96VA%2B%20en%20la%20p%C3%A1gina%20y%20quiero%20conocer%20la%20informaci%C3%B3n%20para%20comprar%201%20unidad." 
-                       target="_blank" rel="noopener"
-                       class="track-cta w-full block text-center py-4 rounded-xl border-2 border-brand-600 text-brand-600 font-bold hover:bg-brand-50 transition-colors">
-                        QUIERO 1 RENÖVA+
-                    </a>
-                </div>
-
-                <!-- Option 2 -->
-                <div class="border-2 border-brand-600 rounded-3xl p-8 flex flex-col justify-between relative shadow-xl bg-white transform md:-translate-y-4">
-                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-brand-600 text-white px-4 py-1 rounded-full text-xs font-bold tracking-wider">
-                        OPCIÓN RECOMENDADA
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">PACK 2</h3>
-                        <p class="text-gray-500 text-sm mb-6">2 unidades (42 sobres)</p>
-                        <div class="mb-8">
-                            <span class="text-4xl font-bold text-gray-900">$99.980</span>
-                        </div>
-                        
-                        <!-- Placeholder para bonus si corresponde -->
-                        <!-- <ul class="text-sm text-gray-600 mb-8 space-y-2">
-                            <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> [Beneficio adicional si aplica]</li>
-                        </ul> -->
-                    </div>
-                    <a href="https://wa.me/56995414090?text=Hola,%20vi%20REN%C3%96VA%2B%20en%20la%20p%C3%A1gina%20y%20quiero%20conocer%20la%20informaci%C3%B3n%20para%20comprar%20el%20Pack%20de%202%20unidades." 
-                       target="_blank" rel="noopener"
-                       class="track-cta w-full block text-center py-4 rounded-xl bg-brand-600 text-white font-bold hover:bg-brand-700 transition-colors shadow-md">
-                        QUIERO PACK 2
-                    </a>
-                </div>
-
-                <!-- Option 3 -->
-                <div class="border border-gray-200 rounded-3xl p-8 flex flex-col justify-between hover:border-brand-500 transition-colors bg-white">
-                    <div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">PACK 3</h3>
-                        <p class="text-gray-500 text-sm mb-6">3 unidades (63 sobres)</p>
-                        <div class="mb-8">
-                            <span class="text-4xl font-bold text-gray-900">$149.970</span>
-                        </div>
-                    </div>
-                    <a href="https://wa.me/56995414090?text=Hola,%20vi%20REN%C3%96VA%2B%20en%20la%20p%C3%A1gina%20y%20quiero%20conocer%20la%20informaci%C3%B3n%20para%20comprar%20el%20Pack%20de%203%20unidades." 
-                       target="_blank" rel="noopener"
-                       class="track-cta w-full block text-center py-4 rounded-xl border-2 border-brand-600 text-brand-600 font-bold hover:bg-brand-50 transition-colors">
-                        QUIERO PACK 3
-                    </a>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ================= WHOLESALE SECTION ================= -->
-    <section class="py-16 bg-brand-50 border-y border-brand-100">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-2xl font-bold text-brand-900 mb-4">¿Quieres comprar 7 unidades o más?</h2>
-            <p class="text-brand-800 mb-8 max-w-2xl mx-auto">
-                Si estás buscando comprar RENÖVA+ en mayor cantidad, escríbenos por WhatsApp para conocer las condiciones disponibles para compras desde 7 unidades.
-            </p>
-            <a href="https://wa.me/56995414090?text=Hola,%20quiero%20conocer%20las%20condiciones%20para%20comprar%207%20unidades%20o%20m%C3%A1s%20de%20REN%C3%96VA%2B." 
-               target="_blank" rel="noopener"
-               class="track-wholesale inline-flex items-center px-6 py-3 rounded-lg bg-white border border-brand-200 text-brand-700 font-semibold hover:bg-brand-100 transition-colors shadow-sm">
-                <svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.125-.395-.179-1.077-.4-2.12-1.332-1.033-.923-1.637-2.073-1.826-2.327-.189-.253-.45-.769-.434-1.25.016-.48.242-.725.328-.823.087-.098.245-.145.366-.145.12 0 .237-.002.346.002.115.004.256-.046.398.293.143.34.484 1.185.526 1.272.043.088.077.199.006.335-.07.135-.11.222-.213.344-.105.122-.218.261-.311.353-.105.105-.214.22-.09.434.125.215.556.918 1.196 1.492.825.74 1.517.973 1.733 1.073.216.1.343.086.471-.059.127-.145.549-.64.697-.859.148-.22.296-.183.493-.11.198.073 1.248.588 1.463.696.215.107.358.16.41.25.053.088.053.513-.09 1.187z"/></svg>
-                CONSULTAR COMPRA MAYORISTA
-            </a>
-        </div>
-    </section>
-
-    <!-- ================= FAQ ================= -->
-    <section class="py-24 bg-slate-50">
+    <!-- ================= FREQUENTLY ASKED QUESTIONS ================= -->
+    <section class="py-20 bg-white" id="faq">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-bold mb-10 text-center">Preguntas Frecuentes</h2>
             
             <div class="space-y-4">
-                
                 <!-- FAQ Item 1 -->
-                <div class="border border-gray-200 rounded-xl bg-white overflow-hidden">
-                    <button class="accordion-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" aria-expanded="false">
-                        <span class="font-semibold text-gray-900">¿Qué es RENÖVA+?</span>
+                <div class="border border-gray-200 rounded-xl overflow-hidden bg-white">
+                    <button class="accordion-btn w-full px-6 py-4 text-left font-semibold flex justify-between items-center text-brand-dark focus:outline-none" aria-expanded="false">
+                        <span>¿Cómo debo tomar RENÖVA+?</span>
                         <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
-                    <div class="accordion-content bg-slate-50 px-6">
-                        <p class="py-4 text-gray-600 text-sm">RENÖVA+ es un suplemento en polvo diseñado para complementar tu rutina diaria. Está formulado con colágeno hidrolizado Peptan®, vitaminas y minerales seleccionados para acompañar tus hábitos de bienestar.</p>
+                    <div class="accordion-content px-6 bg-slate-50">
+                        <p class="text-gray-600 text-sm pb-4">Te recomendamos disolver el contenido de un sobre en un vaso de agua (aprox. 250ml) y revolver bien. Puedes tomarlo a la hora que más te acomode, lo importante es mantener la constancia diaria.</p>
                     </div>
                 </div>
 
                 <!-- FAQ Item 2 -->
-                <div class="border border-gray-200 rounded-xl bg-white overflow-hidden">
-                    <button class="accordion-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" aria-expanded="false">
-                        <span class="font-semibold text-gray-900">¿Cuánto contiene cada porción?</span>
+                <div class="border border-gray-200 rounded-xl overflow-hidden bg-white">
+                    <button class="accordion-btn w-full px-6 py-4 text-left font-semibold flex justify-between items-center text-brand-dark focus:outline-none" aria-expanded="false">
+                        <span>¿Cuántos sobres vienen en cada caja?</span>
                         <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
-                    <div class="accordion-content bg-slate-50 px-6">
-                        <p class="py-4 text-gray-600 text-sm">Cada porción de RENÖVA+ entrega 11,4 gramos de proteína de colágeno.</p>
+                    <div class="accordion-content px-6 bg-slate-50">
+                        <p class="text-gray-600 text-sm pb-4">Cada caja de RENÖVA+ contiene 21 sobres individuales, pensados para acompañarte a lo largo del mes en tu rutina de bienestar.</p>
                     </div>
                 </div>
 
                 <!-- FAQ Item 3 -->
-                <div class="border border-gray-200 rounded-xl bg-white overflow-hidden">
-                    <button class="accordion-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" aria-expanded="false">
-                        <span class="font-semibold text-gray-900">¿Cuántos sobres trae?</span>
+                <div class="border border-gray-200 rounded-xl overflow-hidden bg-white">
+                    <button class="accordion-btn w-full px-6 py-4 text-left font-semibold flex justify-between items-center text-brand-dark focus:outline-none" aria-expanded="false">
+                        <span>¿Cómo es el proceso de compra?</span>
                         <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
-                    <div class="accordion-content bg-slate-50 px-6">
-                        <p class="py-4 text-gray-600 text-sm">Cada caja de RENÖVA+ incluye 21 sobres individuales, pensados para un uso práctico y sin complicaciones.</p>
+                    <div class="accordion-content px-6 bg-slate-50">
+                        <p class="text-gray-600 text-sm pb-4">Buscamos darte un trato cercano y personalizado. Al hacer clic en "Comprar", serás redirigido a nuestro WhatsApp donde tomaremos tu pedido, coordinaremos el envío y resolveremos cualquier duda al instante.</p>
                     </div>
                 </div>
-
-                <!-- FAQ Item 4 -->
-                <div class="border border-gray-200 rounded-xl bg-white overflow-hidden">
-                    <button class="accordion-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" aria-expanded="false">
-                        <span class="font-semibold text-gray-900">¿Cómo se prepara?</span>
-                        <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="accordion-content bg-slate-50 px-6">
-                        <p class="py-4 text-gray-600 text-sm">Es muy simple: abre un sobre, vierte el contenido en aproximadamente 250 ml de agua y mézclalo bien.</p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 5 -->
-                <div class="border border-gray-200 rounded-xl bg-white overflow-hidden">
-                    <button class="accordion-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" aria-expanded="false">
-                        <span class="font-semibold text-gray-900">¿Cuándo puedo incorporarlo a mi rutina?</span>
-                        <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="accordion-content bg-slate-50 px-6">
-                        <p class="py-4 text-gray-600 text-sm">Puedes incorporarlo en el momento del día que mejor se adapte a tus hábitos. Lo importante es la consistencia en tu rutina.</p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 6 -->
-                <div class="border border-gray-200 rounded-xl bg-white overflow-hidden">
-                    <button class="accordion-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" aria-expanded="false">
-                        <span class="font-semibold text-gray-900">¿Cuál es el precio?</span>
-                        <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="accordion-content bg-slate-50 px-6">
-                        <p class="py-4 text-gray-600 text-sm">El valor por 1 unidad de RENÖVA+ (21 sobres) es de $49.990 CLP.</p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 7 -->
-                <div class="border border-gray-200 rounded-xl bg-white overflow-hidden">
-                    <button class="accordion-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" aria-expanded="false">
-                        <span class="font-semibold text-gray-900">¿Hacen despachos?</span>
-                        <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="accordion-content bg-slate-50 px-6">
-                        <p class="py-4 text-gray-600 text-sm">[Información de despacho reservada para especificar según las políticas de envío de la empresa. Consulta los detalles exactos al contactarnos por WhatsApp.]</p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 8 -->
-                <div class="border border-gray-200 rounded-xl bg-white overflow-hidden">
-                    <button class="accordion-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" aria-expanded="false">
-                        <span class="font-semibold text-gray-900">¿Cómo puedo comprar?</span>
-                        <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="accordion-content bg-slate-50 px-6">
-                        <p class="py-4 text-gray-600 text-sm">Todo el proceso de compra, dudas y coordinación se realiza de forma directa y personalizada a través de nuestro WhatsApp oficial.</p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 9 -->
-                <div class="border border-gray-200 rounded-xl bg-white overflow-hidden">
-                    <button class="accordion-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" aria-expanded="false">
-                        <span class="font-semibold text-gray-900">¿Puedo comprar 7 unidades o más?</span>
-                        <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="accordion-content bg-slate-50 px-6">
-                        <p class="py-4 text-gray-600 text-sm">Sí, tenemos condiciones especiales para compras mayoristas (desde 7 unidades). Escríbenos por WhatsApp solicitando información sobre compras por mayor para entregarte los detalles.</p>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
 
     <!-- ================= FINAL CTA ================= -->
-    <section class="py-24 bg-white text-center">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold tracking-tight mb-4 text-brand-dark">¿Listo para conocer RENÖVA+?</h2>
-            <p class="text-lg text-gray-500 mb-10">Escríbenos por WhatsApp y te ayudamos con tu compra de manera personalizada.</p>
-            
-            <div class="flex flex-col items-center gap-6">
-                <a href="https://wa.me/56995414090?text=Hola,%20vi%20REN%C3%96VA%2B%20en%20la%20p%C3%A1gina%20y%20quiero%20conocer%20la%20informaci%C3%B3n%20para%20comprar." 
-                   target="_blank" rel="noopener"
-                   class="track-cta w-full sm:w-auto inline-flex justify-center items-center px-10 py-5 text-xl font-bold rounded-2xl bg-brand-600 text-white hover:bg-brand-700 shadow-xl hover:shadow-2xl transition-all">
-                    QUIERO RENÖVA+
-                </a>
-                
-                <div class="pt-6 border-t border-gray-100 w-full max-w-sm mt-4">
-                    <p class="text-sm text-gray-500 mb-3">¿Compra desde 7 unidades?</p>
-                    <a href="https://wa.me/56995414090?text=Hola,%20quiero%20conocer%20las%20condiciones%20para%20comprar%207%20unidades%20o%20m%C3%A1s%20de%20REN%C3%96VA%2B." 
-                       target="_blank" rel="noopener"
-                       class="track-wholesale text-sm font-semibold text-brand-600 hover:text-brand-800 underline">
-                        CONSULTAR CONDICIONES MAYORISTAS
-                    </a>
-                </div>
-            </div>
+    <section class="py-20 bg-brand-600 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-brand-700 to-brand-500 opacity-90"></div>
+        <!-- Decorative pattern -->
+        <div class="absolute inset-0" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 32px 32px; opacity: 0.1;"></div>
+        
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center text-white">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">Empieza a cuidarte hoy de la forma más práctica.</h2>
+            <p class="text-lg md:text-xl mb-10 text-brand-100">Únete a quienes ya sumaron RENÖVA+ a su rutina diaria.</p>
+            <a href="https://wa.me/56995414090?text=Hola,%20vi%20REN%C3%96VA%2B%20en%20la%20p%C3%A1gina%20y%20quiero%20conocer%20la%20informaci%C3%B3n%20para%20comprar." 
+               target="_blank" rel="noopener"
+               class="track-cta inline-flex justify-center items-center px-10 py-4 text-lg font-bold rounded-xl bg-white text-brand-700 hover:bg-slate-50 transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1">
+                COMPRAR POR WHATSAPP
+            </a>
         </div>
     </section>
 
     <!-- ================= FOOTER ================= -->
-    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-6">
-            <div>
-                <span class="font-bold text-xl text-white tracking-tighter">RENÖVA+</span>
-                <p class="text-sm mt-2">Un complemento para tu rutina de bienestar.</p>
+    <footer class="bg-gray-900 pt-16 pb-8 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-12">
+                
+                <!-- Brand col -->
+                <div class="md:col-span-4">
+                    <span class="font-bold text-3xl tracking-tighter text-white block mb-4">RENÖVA+</span>
+                    <p class="text-gray-400 text-sm mb-6 pr-4">
+                        Una fórmula diseñada con colágeno Peptan®, vitaminas y minerales para simplificar tu rutina diaria de bienestar.
+                    </p>
+                </div>
+                
+                <!-- Links col -->
+                <div class="md:col-span-4">
+                    <h3 class="text-white font-semibold mb-4">Atención al Cliente</h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="https://wa.me/56995414090?text=Hola,%20tengo%20una%20duda%20sobre%20REN%C3%96VA%2B" class="text-gray-400 hover:text-white transition-colors text-sm flex items-center">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                                Contactar por WhatsApp
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Disclaimer col -->
+                <div class="md:col-span-4">
+                    <h3 class="text-white font-semibold mb-4">Aviso Importante</h3>
+                    <div class="bg-gray-800 p-4 rounded-lg text-xs text-gray-400 leading-relaxed">
+                        <p><strong>Suplemento Alimentario.</strong> Su uso no es recomendable para consumo por menores de 8 años, embarazadas y nodrizas, salvo indicación profesional competente y no reemplaza a una alimentación balanceada.</p>
+                    </div>
+                </div>
             </div>
-            <div class="text-sm">
-                <p>© 2026 RENÖVA+. Todos los derechos reservados.</p>
-                <p class="mt-1 text-xs text-slate-500">Este producto no es un medicamento. Su consumo es responsabilidad de quien lo recomienda y de quien lo usa.</p>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+                <p>&copy; 2024 RENÖVA+. Todos los derechos reservados.</p>
+                <div class="mt-4 md:mt-0 space-x-4">
+                    <!-- Link placeholders for future legal pages -->
+                    <a href="#" class="hover:text-white transition-colors">Términos y Condiciones</a>
+                    <a href="#" class="hover:text-white transition-colors">Políticas de Privacidad</a>
+                </div>
             </div>
         </div>
     </footer>
 
     <!-- ================= FLOATING WHATSAPP BUTTON ================= -->
-    <a href="https://wa.me/56995414090?text=Hola,%20tengo%20una%20duda%20sobre%20REN%C3%96VA%2B." 
+    <a href="https://wa.me/56995414090?text=Hola,%20vi%20REN%C3%96VA%2B%20en%20la%20p%C3%A1gina%20y%20quiero%20conocer%20la%20informaci%C3%B3n%20para%20comprar." 
        target="_blank" rel="noopener"
-       class="track-whatsapp fixed bottom-6 right-6 z-50 flex items-center bg-white rounded-full p-1 pr-4 shadow-2xl border border-gray-100 hover:scale-105 transition-transform cursor-pointer group">
-        <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center animate-pulse-soft mr-3 shadow-inner">
-            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.125-.395-.179-1.077-.4-2.12-1.332-1.033-.923-1.637-2.073-1.826-2.327-.189-.253-.45-.769-.434-1.25.016-.48.242-.725.328-.823.087-.098.245-.145.366-.145.12 0 .237-.002.346.002.115.004.256-.046.398.293.143.34.484 1.185.526 1.272.043.088.077.199.006.335-.07.135-.11.222-.213.344-.105.122-.218.261-.311.353-.105.105-.214.22-.09.434.125.215.556.918 1.196 1.492.825.74 1.517.973 1.733 1.073.216.1.343.086.471-.059.127-.145.549-.64.697-.859.148-.22.296-.183.493-.11.198.073 1.248.588 1.463.696.215.107.358.16.41.25.053.088.053.513-.09 1.187z"/></svg>
-        </div>
-        <span class="font-medium text-sm text-gray-700 hidden sm:block group-hover:text-green-600 transition-colors">¿Tienes preguntas? Escríbenos</span>
+       class="fixed bottom-6 right-6 w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform z-50 animate-pulse-soft focus:outline-none focus:ring-4 focus:ring-green-300"
+       aria-label="Contactar por WhatsApp">
+        <!-- WhatsApp Icon SVG -->
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+        </svg>
     </a>
 
-    <!-- ================= JAVASCRIPT ================= -->
+    <!-- Scripts -->
     <script>
-        // 1. FAQ Accordion Logic
         document.addEventListener('DOMContentLoaded', () => {
-            const accordions = document.querySelectorAll('.accordion-btn');
+            const accordionBtns = document.querySelectorAll('.accordion-btn');
 
-            accordions.forEach(btn => {
+            accordionBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
-                    const expanded = this.getAttribute('aria-expanded') === 'true' || false;
+                    const expanded = this.getAttribute('aria-expanded') === 'true';
                     const content = this.nextElementSibling;
                     
-                    // Close all other accordions (Optional, remove if you want multiple open)
-                    accordions.forEach(otherBtn => {
+                    // Close all others
+                    accordionBtns.forEach(otherBtn => {
                         if (otherBtn !== this) {
                             otherBtn.setAttribute('aria-expanded', 'false');
                             otherBtn.nextElementSibling.classList.remove('open');
@@ -716,37 +600,13 @@
                     }
                 });
             });
-        });
-
-        // 2. Event Tracking Simulation (for Meta/GTM setup)
-        // These classes are added to links: .track-cta, .track-wholesale, .track-whatsapp
-        document.addEventListener('DOMContentLoaded', () => {
             
-            // Standard CTA Clicks
-            document.querySelectorAll('.track-cta').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    console.log('Event Tracked: Lead / InitiateCheckout (Standard CTA)');
-                    // Uncomment when pixel is active
-                    // if(typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout');
-                    // if(typeof dataLayer !== 'undefined') dataLayer.push({'event': 'cta_click'});
-                });
-            });
-
-            // Wholesale Clicks
-            document.querySelectorAll('.track-wholesale').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    console.log('Event Tracked: Lead (Wholesale Inquiry)');
-                    // Uncomment when pixel is active
-                    // if(typeof fbq !== 'undefined') fbq('track', 'Lead', { content_name: 'Wholesale' });
-                });
-            });
-
-            // WhatsApp Floating Button Clicks
-            document.querySelectorAll('.track-whatsapp').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    console.log('Event Tracked: Contact (WhatsApp Float)');
-                    // Uncomment when pixel is active
-                    // if(typeof fbq !== 'undefined') fbq('track', 'Contact');
+            // Optional: Simple event tracking for CTAs if needed in the future
+            const ctaButtons = document.querySelectorAll('.track-cta');
+            ctaButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // console.log('CTA Clicked');
+                    // dataLayer.push({'event': 'click_whatsapp'});
                 });
             });
         });
