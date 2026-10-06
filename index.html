@@ -705,10 +705,16 @@
                 //     'click_source': source
                 // });
 
-                // Si usas Meta Pixel nativo, descomenta esto:
-                // if (typeof fbq === 'function') {
-                //     fbq('trackCustom', 'WhatsAppClick', { source: source });
-                // }
+                // Registrar un contacto por clic sin bloquear la apertura de WhatsApp.
+                try {
+                    if (typeof fbq === 'function') {
+                        fbq('track', 'Contact', {
+                            content_name: 'WhatsApp Renova 360'
+                        });
+                    }
+                } catch (error) {
+                    console.warn('No se pudo registrar Contact en Meta Pixel.', error);
+                }
             }
 
             // Asignar el evento a todos los botones con clase 'wa-btn'
