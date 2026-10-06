@@ -66,10 +66,6 @@
         // 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         // })(window,document,'script','dataLayer','[GOOGLE_TAG_MANAGER_ID]');
         
-        // Meta Pixel Placeholder
-        // !function(f,b,e,v,n,t,s){...}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-        // fbq('init', '[META_PIXEL_ID]');
-        // fbq('track', 'PageView');
     </script>
     
     <style>
@@ -139,8 +135,26 @@
             *, *::before, *::after { animation: none !important; transition: none !important; }
         }
     </style>
+    <!-- Meta Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1616701470198212');
+        fbq('track', 'PageView');
+    </script>
+    <!-- End Meta Pixel Code -->
 </head>
 <body class="bg-slate-50 text-brand-dark overflow-x-hidden">
+    <!-- Meta Pixel fallback for browsers with JavaScript disabled -->
+    <noscript><img height="1" width="1" style="display:none" alt=""
+        src="https://www.facebook.com/tr?id=1616701470198212&amp;ev=PageView&amp;noscript=1"
+    ></noscript>
 
     <!-- ================= NAVBAR ================= -->
     <nav class="fixed w-full bg-white/95 backdrop-blur-md border-b border-gray-100 z-50">
@@ -153,7 +167,7 @@
                 <!-- Nav Action -->
                 <div>
                     <button class="wa-btn tap-highlight-transparent inline-flex items-center justify-center px-5 py-2 text-sm font-semibold rounded-full bg-brand-dark text-white hover:bg-gray-800 transition-colors"
-                            data-wa-msg="Hola Cristian 👋 Vi la información de RENÖVA+ en la página y me gustaría conocerlo mejor."
+                            data-wa-msg="Hola Cristian, vi la información de RENÖVA+ en la página y me gustaría conocerlo mejor."
                             data-source="navbar">
                         Consultar
                     </button>
@@ -199,7 +213,7 @@
                     <!-- CTA 1 -->
                     <div class="hero-actions flex flex-col items-center lg:items-start gap-2">
                         <button class="wa-btn tap-highlight-transparent w-full sm:w-auto inline-flex justify-center items-center px-8 py-4 text-lg font-bold rounded-xl bg-brand-600 text-white hover:bg-brand-700 shadow-lg hover:shadow-xl transition-all duration-300"
-                                data-wa-msg="Hola Cristian 👋 Vi la información de RENÖVA+ en la página y me gustaría conocerlo mejor."
+                                data-wa-msg="Hola Cristian, vi la información de RENÖVA+ en la página y me gustaría conocerlo mejor."
                                 data-source="hero">
                             QUIERO CONOCER RENÖVA+
                         </button>
@@ -337,7 +351,7 @@
             <!-- CTA 2 -->
             <div class="text-center">
                 <button class="wa-btn tap-highlight-transparent inline-flex justify-center items-center px-8 py-4 text-base font-bold rounded-xl bg-brand-dark text-white hover:bg-gray-800 transition-colors shadow-lg hover:shadow-xl"
-                        data-wa-msg="Hola Cristian 👋 Estuve revisando RENÖVA+ y quisiera saber si se adapta a lo que estoy buscando."
+                        data-wa-msg="Hola Cristian, estuve revisando RENÖVA+ y quisiera saber si se adapta a lo que estoy buscando."
                         data-source="ingredients">
                     QUIERO SABER SI ES PARA MÍ
                 </button>
@@ -445,7 +459,7 @@
             <p class="text-gray-600 mb-8">Valor por 1 Doypack · Contiene 21 sobres individuales</p>
             
             <button class="wa-btn tap-highlight-transparent inline-flex justify-center items-center px-10 py-4 text-lg font-bold rounded-xl bg-brand-600 text-white hover:bg-brand-700 transition-all duration-300 shadow-lg hover:shadow-xl w-full sm:w-auto"
-                    data-wa-msg="Hola Cristian 👋 Vi RENÖVA+ a $49.990 y quisiera consultar disponibilidad."
+                    data-wa-msg="Hola Cristian, vi RENÖVA+ a $49.990 y quisiera consultar disponibilidad."
                     data-source="price">
                 CONSULTAR DISPONIBILIDAD
             </button>
@@ -531,7 +545,7 @@
                         </li>
                     </ul>
                     <button class="wa-btn tap-highlight-transparent w-full py-4 px-6 rounded-xl font-bold text-white bg-slate-900 hover:bg-slate-800 transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2"
-                            data-wa-msg="Hola Cristian 👋 Estoy interesado/a en 1 Doypack de RENÖVA+ a $49.990 y quisiera consultar disponibilidad."
+                            data-wa-msg="Hola Cristian, estoy interesado/a en 1 Doypack de RENÖVA+ a $49.990 y quisiera consultar disponibilidad."
                             data-source="price_1">
                         CONSULTAR DISPONIBILIDAD
                     </button>
@@ -558,7 +572,7 @@
                         </p>
                     </div>
                     <button class="wa-btn tap-highlight-transparent w-full py-4 px-6 rounded-xl font-bold text-white bg-brand-600 hover:bg-brand-700 transition-colors shadow-lg shadow-brand-500/30 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2"
-                            data-wa-msg="Hola Cristian 👋 Me interesa el pack de 3 Doypacks de RENÖVA+ por $149.970 y quisiera conocer disponibilidad."
+                            data-wa-msg="Hola Cristian, me interesa el pack de 3 Doypacks de RENÖVA+ por $149.970 y quisiera conocer disponibilidad."
                             data-source="price_3">
                         CONSULTAR PACK 3 DOYPACKS
                     </button>
@@ -576,7 +590,7 @@
                         <p class="text-slate-700">Consulta las condiciones disponibles para compras desde 7 Doypacks.</p>
                     </div>
                     <button class="wa-btn tap-highlight-transparent w-full py-4 px-6 rounded-xl font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-200 focus:ring-offset-2"
-                            data-wa-msg="Hola Cristian 👋 Quisiera conocer el valor y las condiciones para comprar 7 o más Doypacks de RENÖVA+."
+                            data-wa-msg="Hola Cristian, quisiera conocer el valor y las condiciones para comprar 7 o más Doypacks de RENÖVA+."
                             data-source="price_7plus">
                         CONSULTAR DESCUENTO
                     </button>
@@ -601,7 +615,7 @@
             <p class="text-lg mb-10 text-brand-100">Haz clic abajo para abrir WhatsApp y conversar directamente con nosotros.</p>
             
             <button class="wa-btn tap-highlight-transparent inline-flex justify-center items-center px-10 py-4 text-lg font-bold rounded-xl bg-white text-brand-800 hover:bg-slate-100 transition-all duration-300 shadow-xl w-full sm:w-auto"
-                    data-wa-msg="Hola Cristian 👋 Vi RENÖVA+ a $49.990 y quisiera consultar disponibilidad."
+                    data-wa-msg="Hola Cristian, vi RENÖVA+ a $49.990 y quisiera consultar disponibilidad."
                     data-source="final_cta">
                 CONSULTAR POR WHATSAPP
             </button>
@@ -660,7 +674,7 @@
         </div>
         <button class="wa-btn tap-highlight-transparent w-14 h-14 sm:w-16 sm:h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-105 transition-transform animate-pulse-soft focus:outline-none focus:ring-4 focus:ring-green-300/50"
                 aria-label="Contactar por WhatsApp"
-                data-wa-msg="Hola Cristian 👋 Estoy viendo la página de RENÖVA+ y tengo una consulta."
+                data-wa-msg="Hola Cristian, estoy viendo la página de RENÖVA+ y tengo una consulta."
                 data-source="floating">
             <!-- WhatsApp Icon SVG -->
             <svg class="w-7 h-7 sm:w-8 sm:h-8 ml-0.5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
