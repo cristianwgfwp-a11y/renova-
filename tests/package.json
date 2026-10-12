@@ -1,0 +1,6 @@
+{
+  "name": "renova-360-browser-tests",
+  "private": true,
+  "scripts": { "test": "node validate.cjs" },
+  "devDependencies": { "playwright": "1.62.1" }
+}
