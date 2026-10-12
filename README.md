@@ -10,7 +10,7 @@ Landing estática de RENÖVA+. Se conservan Tailwind CDN, el Pixel y los WebP de
 - Los reintentos mantienen la referencia para facilitar revisión de eventuales duplicados si el servidor recibió el pedido pero se perdió la respuesta. Netlify Forms no ofrece idempotencia transaccional ni confirma pagos.
 - La entrega local fija región Coquimbo y comuna La Serena o Coquimbo. El despacho nacional destaca WhatsApp y advierte que su costo/modalidad deben coordinarse antes de pagar; $49.990 corresponde solo al producto.
 - La referencia se muestra en pantalla y se incorpora al mensaje de WhatsApp junto con nombre y comuna. No se incluyen teléfono, email, dirección ni comentario en la URL de WhatsApp.
-- No se almacenan datos personales en localStorage/sessionStorage ni se envían como parámetros de eventos. Solo los valores de campaña se conservan durante la sesión. URL de origen y referrer excluyen query/hash. No se guardan datos financieros.
+- No se almacenan datos personales en localStorage/sessionStorage ni se envían como parámetros de eventos. Solo los valores de campaña se conservan durante la sesión. Los campos `url_origen` y `referrer_origen` enviados por la aplicación excluyen query/hash. El nombre propio evita que Netlify sobrescriba el referrer sanitizado; Netlify agrega además sus metadatos de solicitud. No se guardan datos financieros.
 - El correo y la referencia ayudan a Cristian a conciliar manualmente el pago/comprobante y coordinar entrega. El link fijo de Mercado Pago no incorpora automáticamente la referencia.
 - Sin JavaScript, el POST nativo lleva a la página de recepción con instrucciones para contactar a Cristian; no se genera referencia automática ni se habilita un link de pago sin revisión.
 
@@ -42,3 +42,9 @@ Cobertura: 320, 360, 390, 430, 768, 1024 y 1440 px; overflow en secciones y conf
 6. Revisar en un teléfono real la interacción con teclado, safe area y cualquier badge de Netlify. En el formulario se ocultan los controles flotantes para no cubrir campos.
 
 Documentación de referencia: [Netlify Forms](https://docs.netlify.com/manage/forms/setup/).
+
+## Verificación realizada · 12 de octubre de 2026
+
+PR #4 y [Deploy Preview](https://deploy-preview-4--renova-360.netlify.app/) creados, sin fusionar ni publicar producción. Se habilitó la detección de formularios que estaba desactivada en Netlify y se reconstruyó solo el preview. `pedido-renova` aparece como formulario activo.
+
+Dos pedidos ficticios, sin pagos ni mensajes externos, fueron recibidos y revisados en Netlify Forms: `RNV-3A5C799D7833` (La Serena) y `RNV-FF2C663BF8F1` (despacho a Viña del Mar). Se comprobaron datos, dirección, consentimiento, precio, referencia y UTM/fbclid en el segundo caso. Netlify los clasificó como spam; siguen identificados como pruebas técnicas. La recepción real de eventos en Meta Test Events, el comprobante de pago y la entrega física requieren revisión manual. No se habilitaron notificaciones.

@@ -34,8 +34,8 @@
     form.elements.url_origen.value = window.location.origin + window.location.pathname;
     try {
         const referrer = new URL(document.referrer);
-        form.elements.referrer.value = referrer.origin + referrer.pathname;
-    } catch (_) { form.elements.referrer.value = ''; }
+        form.elements.referrer_origen.value = referrer.origin + referrer.pathname;
+    } catch (_) { form.elements.referrer_origen.value = ''; }
 
     const menuToggle = document.querySelector('.menu-toggle');
     const menu = document.querySelector('#nav-links');
