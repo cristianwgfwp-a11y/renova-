@@ -47,4 +47,4 @@ El 16/10/2026 a las 20:11 de Chile se registró el TEST identificado TEST-AVISO-
 
 En Spam submissions se observaron únicamente las cuatro pruebas técnicas anteriores; no se encontraron solicitudes de clientes ocultas en esa bandeja. Esta revisión y un TEST aceptado no garantizan ausencia futura de falsos positivos.
 
-No se abrió Mercado Pago ni se generó pago, venta, mensaje WhatsApp o evento Purchase desde el código. El aviso quedó configurado para el correo oficial; la entrega del correo está pendiente de confirmación del dueño porque el Gmail conectado corresponde a otra cuenta.
+No se abrió Mercado Pago ni se generó pago, venta, mensaje WhatsApp o evento Purchase desde el código. El aviso quedó configurado para el correo oficial. El dueño confirmó expresamente que la notificación de RNV-2E67D5353631 llegó a Recibidos de cristianwgfwp@gmail.com. La entrega se acredita por esa confirmación del destinatario; no por lectura directa del buzón, ya que el Gmail conectado corresponde a otra cuenta.
