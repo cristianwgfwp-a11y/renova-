@@ -7,7 +7,7 @@
 - Primera pantalla: ENVÍO GRATIS A TODO CHILE destacado, precio $49.990, imagen original y compra visibles. Se elimina de la interfaz la explicación del costo asumido por el vendedor.
 - Confianza: seis tarjetas se sustituyen por tres mensajes compactos: Mercado Pago, envío gratis y atención personalizada por WhatsApp.
 - Formulario móvil: menor espaciado; nombre/apellido y región/comuna comparten fila. Teléfono, email y dirección mantienen ancho completo. Referencia opcional desplegable nativa, utilizable sin JavaScript. No se elimina ningún campo ni el consentimiento.
-- Sin cambios en checkout.js, destinos de pago, imágenes, esquema de Netlify ni notificaciones.
+- En checkout.js solo se simplifica el texto de envío. Sin cambios de lógica, destinos de pago, imágenes, esquema de Netlify ni notificaciones.
 
 ## Pruebas
 

@@ -19,7 +19,7 @@ test('price and actual payment destination preserved; confirmed nationwide free 
 
 test('mobile hierarchy retains the original product assets and compact trust without removing optional data',()=>{
  assert.match(html,/<strong class="shipping-badge">ENVÍO GRATIS A TODO CHILE<\/strong>/);
- assert.doesNotMatch(html,/El vendedor asume el costo del despacho/);
+ assert.doesNotMatch(html+checkout,/El vendedor asume el costo del despacho/);
  assert.match(html,/<source srcset="renova.webp"/);assert.match(html,/<img src="renova.png"/);
  assert.match(html,/<details class="address-reference full-field">/);
  assert.match(html,/<textarea id="comentario" name="comentario"/);

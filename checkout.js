@@ -76,7 +76,7 @@
         document.querySelector('#delivery-note').textContent = local
             ? 'Entrega local sin costo en ' + delivery.value + ', sujeta a horario y disponibilidad. Coordinamos contigo.'
             : delivery.value === 'Despacho'
-                ? 'Envío gratis a todo Chile. El vendedor asume el costo del despacho. Total por 1 doypack: $49.990 CLP. Coordinamos contigo los detalles de entrega.'
+                ? 'Envío gratis a todo Chile. Total por 1 doypack: $49.990 CLP. Coordinamos contigo los detalles de entrega.'
                 : 'Selecciona cómo deseas recibir tu pedido.';
     }
     delivery.addEventListener('change', updateDelivery);
