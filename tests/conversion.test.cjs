@@ -16,3 +16,12 @@ test('one Pixel init and PageView; Contact, Lead and checkout retained; no inven
 test('all scripts parse',()=>{for(const s of html.matchAll(/<script[^>]*>([\s\S]*?)<\/script>/g))new vm.Script(s[1]);new vm.Script(checkout);});
 test('form remains Netlify POST with honeypot, consent, address and campaign fields',()=>{assert.match(html, /name="pedido-renova"[^>]*method="POST"[^>]*action="\/pedido-recibido.html"[^>]*data-netlify="true"/);for(const name of ['form-name','bot-field','nombre','apellido','telefono','email','region','comuna','direccion','numero','privacidad','referencia','utm_source','utm_medium','utm_campaign','utm_content','fbclid'])assert.ok(html.includes('name="'+name+'"'),name);assert.ok(fs.existsSync(path.join(__dirname,'../pedido-recibido.html')));});
 test('price and actual payment destination preserved; confirmed nationwide free delivery is consistent',()=>{assert.match(html,/\$49\.990/);assert.match(html,/id="payment-link" href="https:\/\/mpago.la\/1StdMG6"/);assert.match(html,/Envío gratis a todo Chile/);assert.match(checkout,/Envío gratis a todo Chile/);assert.doesNotMatch(html+checkout,/Consulta el costo|coordina costo|no está incluido|no están incluidos|24 horas|48 horas/i);assert.match(html,/name="envio_clp" value="0"/);assert.match(html,/name="total_clp" value="49990"/);});
+
+test('mobile hierarchy retains the original product assets and compact trust without removing optional data',()=>{
+ assert.match(html,/<strong class="shipping-badge">ENVÍO GRATIS A TODO CHILE<\/strong>/);
+ assert.doesNotMatch(html,/El vendedor asume el costo del despacho/);
+ assert.match(html,/<source srcset="renova.webp"/);assert.match(html,/<img src="renova.png"/);
+ assert.match(html,/<details class="address-reference full-field">/);
+ assert.match(html,/<textarea id="comentario" name="comentario"/);
+ const trust=html.match(/<ul class="trust-strip">([\s\S]*?)<\/ul>/)[1];assert.equal((trust.match(/<li>/g)||[]).length,3);
+});

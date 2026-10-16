@@ -29,8 +29,14 @@ main { min-width: 0; }
 .step::before { counter-increment: steps; content: '0' counter(steps); display: block; font-size: 26px; color: var(--wine); font-weight: 700; margin-bottom: 18px; }
 .step h3 { font-weight: 700; margin-bottom: 8px; }
 .step p { font-size: 14px; line-height: 1.6; color: #52525b; }
-.trust-strip { display: grid; gap: 12px; margin-top: 24px; }
-.trust-strip span { padding: 16px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; font-size: 14px; font-weight: 600; }
+.trust-strip { display: grid; gap: 8px; margin-top: 16px; list-style: none; padding: 0; }
+.trust-strip li { display: flex; gap: 8px; align-items: baseline; padding: 6px 0; font-size: 14px; line-height: 1.5; font-weight: 600; }
+.trust-strip li span { color: #831843; flex-shrink: 0; }
+.trust-section { padding-top: 28px; padding-bottom: 28px; }
+.trust-section .v3-heading { font-size: 24px; }
+.shipping-badge { display: inline-flex; max-width: 100%; padding: 8px 12px; border-radius: 8px; background: #831843; color: white; font-size: 13px; line-height: 1.4; letter-spacing: .025em; font-weight: 700; }
+.address-reference > summary { min-height: 44px; padding: 10px 0; color: #831843; cursor: pointer; font-size: 14px; font-weight: 600; }
+.address-reference > div { margin-top: 8px; }
 .order-section { background: #fdf2f8; }
 .order-layout { display: grid; gap: 28px; margin-top: 28px; align-items: start; }
 .order-summary { background: var(--wine); color: white; padding: 28px; border-radius: 20px; }
@@ -80,3 +86,15 @@ body > footer { padding-bottom: calc(7rem + env(safe-area-inset-bottom, 0px)); }
 .contact-options { display: grid; gap: 12px; padding: 0 20px 20px; }
 .contact-options .coordinate-btn { margin-top: 0; }
 @media (min-width: 640px) { .contact-options { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* Compact mobile form: preserve 48px controls, 16px text, all fields and consent. */
+@media (max-width: 639px) {
+ .order-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+ .order-grid > .full-field, .order-grid > .mobile-full { grid-column: 1 / -1; }
+ .order-card label { margin-bottom: 6px; }
+ .order-card input:not([type=checkbox]):not([type=hidden]), .order-card select, .order-card textarea { padding: 10px; }
+ .order-card .delivery-note { padding: 10px; margin: 8px 0 0; }
+ .privacy-label { margin: 16px 0 !important; font-size: 13px !important; }
+ .order-section .v3-intro { font-size: 14px; line-height: 1.5; }
+ .order-section .order-layout { margin-top: 20px; }
+}

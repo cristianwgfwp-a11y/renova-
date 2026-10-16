@@ -60,9 +60,10 @@ async function runNativeLinkChecks(browser, url) {
     await page.locator('#telefono').fill('+56000000000'); await page.locator('#email').fill('test@example.invalid');
     await page.locator('#tipo_entrega').selectOption('La Serena'); await page.locator('#region').selectOption('Coquimbo');
     await page.locator('#comuna').fill('La Serena'); await page.locator('#direccion').fill('PRUEBA NO ENTREGAR'); await page.locator('#numero').fill('Sin número');
+    await page.locator('.address-reference summary').click(); await page.locator('#comentario').fill('TEST referencia sin JS'); await page.locator('.address-reference summary').click();
     await page.locator('#privacidad').check(); await page.locator('#submit-order').click();
     await page.waitForURL('**/pedido-recibido.html');
-    assert.equal(submissions.length,before+1); assert.equal(submissions.at(-1).region,'Coquimbo'); assert.equal(submissions.at(-1)['form-name'],'pedido-renova');
+    assert.equal(submissions.length,before+1); assert.equal(submissions.at(-1).region,'Coquimbo'); assert.equal(submissions.at(-1)['form-name'],'pedido-renova'); assert.equal(submissions.at(-1).comentario,'TEST referencia sin JS');
     await nojs.close();
     for (const tracking of ['missing','throws']) {
         const context = await browser.newContext();
@@ -97,7 +98,7 @@ async function run() {
     assert.deepEqual(await page.evaluate(() => fbq.queue.map(item => Array.from(item))), [['init', '1616701470198212'], ['track', 'PageView']]);
     const output = path.join(root, '.qa'); fs.mkdirSync(output, { recursive: true });
     for (const width of [320, 360, 390, 430, 768, 1024, 1440]) {
-        await page.setViewportSize({ width, height: 900 });
+        await page.setViewportSize({ width, height: width <= 430 ? 844 : 900 });
         await page.evaluate(() => window.scrollTo(0, 0));
         await page.waitForTimeout(150);
         assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), 'Overflow at ' + width);
@@ -107,6 +108,12 @@ async function run() {
         }
         await page.evaluate(() => window.scrollTo(0, 0));
         assert.ok(await page.locator('[data-buy-source="hero"]').evaluate(el => el.getBoundingClientRect().bottom <= innerHeight), 'Hero CTA above fold at ' + width);
+        if (width <= 430) {
+            assert.ok(await page.locator('.trust-section').evaluate(e=>e.getBoundingClientRect().height<=240),'Compact trust at '+width);
+            assert.ok(await page.locator('#order-form').evaluate(e=>e.getBoundingClientRect().height<=1200),'Compact form at '+width);
+            assert.equal(await page.locator('.shipping-badge').innerText(),'ENVÍO GRATIS A TODO CHILE');
+            assert.equal(await page.locator('.trust-strip li').count(),3);
+        }
         await page.screenshot({ path: path.join(output, 'responsive-' + width + '.png'), fullPage: true });
         if (width === 390 || width === 1440) await page.screenshot({ path: path.join(output, 'hero-' + width + '.png') });
     }
@@ -126,6 +133,13 @@ async function run() {
     await page.locator('#submit-order').click();
     assert.equal(submissions.length, 0, 'Empty form cannot submit');
     assert.ok(await page.locator('#order-confirmation').isHidden());
+    await page.setViewportSize({width:320,height:568});
+    await page.evaluate(()=>window.scrollTo(0,0));
+    assert.ok(await page.locator('[data-buy-source="hero"]').evaluate(e=>e.getBoundingClientRect().bottom<=568),'Buy CTA visible on short mobile screen');
+    await page.setViewportSize({width:390,height:844});
+    await page.locator('.address-reference summary').click();
+    await page.locator('#comentario').fill('TEST referencia opcional conservada');
+    await page.locator('.address-reference summary').click();
     await page.locator('#nombre').fill('Cliente'); await page.locator('#apellido').fill('Prueba');
     await page.locator('#telefono').fill('abcdefgh'); await page.locator('#email').fill('prueba@example.com');
     await page.locator('#tipo_entrega').selectOption('La Serena');
@@ -156,7 +170,7 @@ async function run() {
     await page.locator('#order-confirmation').screenshot({ path: path.join(output, 'order-card-local.png') });
     assert.equal(submissions.length, 2, 'One failed request and one success; pending submit cannot duplicate');
     const order = submissions.at(-1);
-    assert.equal(order['form-name'], 'pedido-renova'); assert.equal(order.region, 'Coquimbo');
+    assert.equal(order.comentario,'TEST referencia opcional conservada'); assert.equal(order['form-name'], 'pedido-renova'); assert.equal(order.region, 'Coquimbo');
     assert.equal(order.comuna, 'Coquimbo'); assert.equal(order.privacidad, 'Acepto');
     assert.equal(order.referencia, retryReference); assert.match(order.referencia, /^RNV-[A-F0-9]{12}$/);
     for (const key of ['nombre', 'apellido', 'telefono', 'email', 'region', 'comuna', 'direccion', 'numero', 'tipo_entrega', 'fecha_hora', 'url_origen', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'fbclid']) assert.ok(order[key], key + ' is sent');
