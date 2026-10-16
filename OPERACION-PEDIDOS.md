@@ -40,3 +40,11 @@ La suite automatizada local comprueba los 17 contactos nativos (incluidas las 14
 La prueba de almacenamiento, clasificación y correo en la nueva vista previa debe registrarse con su referencia y resultado. No basta con observar la confirmación de pantalla. Para afirmar entrega del aviso hay que verlo en Gmail o recibir confirmación expresa del dueño.
 
 Se mantiene el PR #5 abierto para revisión; no fusionar el PR #4 por separado. No se modifica ni publica producción con estos cambios de interfaz.
+
+## Resultado del TEST en la nueva vista previa
+
+El 16/10/2026 a las 20:11 de Chile se registró el TEST identificado TEST-AVISO-20261016, referencia RNV-2E67D5353631. Netlify lo aceptó automáticamente en Verified submissions, sin intervención manual ni cambio de filtros. Se conservaron nombre/apellido, teléfono y correo oficiales de prueba, dirección expresamente de TEST sin entrega, comuna Santiago, región Metropolitana de Santiago, producto, cantidad, referencia, fecha y consentimiento. Se comprobaron precio_clp=49990, envio_clp=0, total_clp=49990 y UTM de QA.
+
+En Spam submissions se observaron únicamente las cuatro pruebas técnicas anteriores; no se encontraron solicitudes de clientes ocultas en esa bandeja. Esta revisión y un TEST aceptado no garantizan ausencia futura de falsos positivos.
+
+No se abrió Mercado Pago ni se generó pago, venta, mensaje WhatsApp o evento Purchase desde el código. El aviso quedó configurado para el correo oficial; la entrega del correo está pendiente de confirmación del dueño porque el Gmail conectado corresponde a otra cuenta.
