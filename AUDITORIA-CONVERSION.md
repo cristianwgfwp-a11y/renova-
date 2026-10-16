@@ -2,6 +2,12 @@
 
 **Recomendación:** verificar recepción, condiciones de despacho y medición antes de volver a anunciar. No hay evidencia suficiente para atribuir los resultados de la campaña a una única causa.
 
+## Contexto aportado por el dueño
+
+Última campaña de Meta Ads: **objetivo de tráfico hacia la landing**, inversión aproximada **$31.000 CLP**, clics y visitas, **ninguna consulta por WhatsApp ni venta confirmada**, y **12 unidades disponibles**. Son datos declarados por el dueño; no se contrastaron con una exportación de Ads Manager o registros de ventas.
+
+El objetivo de tráfico es un dato conocido; que la campaña haya atraído visitas con baja intención de compra sigue siendo una hipótesis. El gasto por sí solo no permite calcular costo por visita ni evaluar la tasa de conversión: faltan cantidades, período y desglose. La falta de Purchase afecta la atribución, pero no explica por sí sola que tampoco se hayan confirmado ventas fuera de Meta.
+
 ## Qué funciona
 
 - **Versión publicada confirmada:** Netlify muestra `main @159ba92`, deploy `6ac6f3e08913f100084daf5e` del 7 de octubre. Su HTML coincide con el repositorio normalizando LF/CRLF. El PR #4 (`mejora-landing-v3-checkout`, `2e45000`) sigue siendo otra versión, disponible solo en vista previa.
@@ -37,7 +43,7 @@ Esta prueba demuestra almacenamiento, no notificación por email, entrega de Wha
 
 Pixel **1616701470198212**: una inicialización y una llamada **PageView**. **Contact** se solicita por clic de WhatsApp; **InitiateCheckout** por clic Comprar, con 49990/CLP. En PR #4, además, **Lead** se solicita cuando el POST recibe respuesta exitosa, incluso si luego Netlify lo clasifica como spam. Lead no equivale a pedido válido ni venta.
 
-Biblioteca Meta disponible por HTTP; tests con tracking disponible, ausente y fallando. **No se verificó recepción de eventos en Meta.** Events Manager conduce a inicio de sesión. Hace falta sesión autenticada con permiso para ver/probar el conjunto **1616701470198212**, Diagnósticos y cuenta publicitaria. Para evaluar campaña: objetivo, período, gasto, clics salientes, visitas a landing y resultados atribuidos. No compartir contraseñas.
+Biblioteca Meta disponible por HTTP; tests con tracking disponible, ausente y fallando. **No se verificó recepción de eventos en Meta.** Events Manager conduce a inicio de sesión. Hace falta sesión autenticada con permiso para ver/probar el conjunto **1616701470198212**, Diagnósticos y cuenta publicitaria. Para evaluar campaña: contrastar objetivo de tráfico y gasto aproximado de $31.000 con el período, configuración de optimización, clics salientes, visitas a landing y resultados atribuidos. No compartir contraseñas.
 
 No disparar Purchase desde el botón ni desde un retorno no validado. Una futura integración debe validar pago aprobado, importe y moneda desde servidor, asociar pedido y transacción, deduplicar y conciliar con ventas. Requiere acceso del desarrollador a la integración y notificaciones de Mercado Pago; los secretos los configura el dueño en el hosting.
 
@@ -47,7 +53,7 @@ La auditoría pudo generar PageView, Contact, InitiateCheckout y un Lead de prue
 
 - Bloqueos de ventana o fallos de carga de JS podrían cortar el contacto. La dependencia está comprobada; su incidencia en la campaña no.
 - Pedir coordinación de despacho antes de pagar añade un segundo paso/canal.
-- Objetivo, segmentación y promesa del anuncio podrían atraer visitas poco cualificadas. Sin Ads Manager no se puede concluir.
+- La campaña tenía objetivo de tráfico. Que la segmentación, la entrega o la promesa del anuncio hayan atraído visitas poco cualificadas es una hipótesis; requiere contrastar anuncios, visitas efectivas y resultados en Ads Manager.
 - Ausencia de Purchase puede producir atribución incompleta; no demuestra que existan ventas no registradas.
 - Producto visualmente pequeño, página extensa y ofertas por volumen podrían distraer. Requieren datos o prueba controlada, no un rediseño general.
 
