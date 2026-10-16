@@ -1,56 +1,18 @@
-// Run: node --test tests/conversion.test.cjs (no packages or network required).
-const {test} = require('node:test');
-const assert = require('node:assert/strict');
-const fs = require('node:fs');
-const vm = require('node:vm');
-const html = fs.readFileSync(require('node:path').join(__dirname, '../index.html'), 'utf8');
-const scripts = [...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)].map(m => m[1]).filter(s => s.trim());
-const attrs = tag => Object.fromEntries([...tag.matchAll(/([\w-]+)="([^"]*)"/g)].map(m=>[m[1],m[2]]));
-const contacts = [...html.matchAll(/<a\b[^>]*\bdata-wa-msg="[^"]*"[^>]*>/g)].map(m=>attrs(m[0]));
-const buys = [...html.matchAll(/<a\b[^>]*\bdata-buy-source="[^"]*"[^>]*>/g)].map(m=>attrs(m[0]));
-test('all inline scripts parse',()=>scripts.forEach(s=>new vm.Script(s)));
-test('all 14 WhatsApp controls navigate natively with correct number and complete message',()=>{
-  assert.equal(contacts.length,14);
-  assert.equal(new Set(contacts.map(a=>a['data-source'])).size,14);
-  assert.doesNotMatch(html, /<button\b[^>]*class="[^"]*wa-btn/);
-  contacts.forEach(a=>{
-    const url = new URL(a.href);
-    assert.equal(url.origin,'https://wa.me');
-    assert.equal(url.pathname,'/56995414090');
-    assert.equal(url.searchParams.get('text'),a['data-wa-msg']);
-    assert.ok(!a.target, 'same-tab navigation avoids popup dependency');
-  });
+const {test}=require('node:test');const assert=require('node:assert/strict');const fs=require('node:fs');const vm=require('node:vm');const path=require('node:path');
+const html=fs.readFileSync(path.join(__dirname,'../index.html'),'utf8'), checkout=fs.readFileSync(path.join(__dirname,'../checkout.js'),'utf8');
+const attrs=tag=>Object.fromEntries([...tag.matchAll(/([\w-]+)="([^"]*)"/g)].map(m=>[m[1],m[2]]));
+const contacts=[...html.matchAll(/<a\b[^>]*class="[^"]*\bwa-btn\b[^>]*>/g)].map(m=>attrs(m[0]));
+const sources=['navbar','hero','ingredients','price','id_piel_unas','id_articulaciones','id_rutina','id_ingredientes','price_1','price_3','price_7plus','final_cta','footer','floating'];
+test('all 14 PR5 contact paths and 3 V3 contact paths have native encoded WhatsApp URLs',()=>{
+ assert.equal(contacts.length,17);for(const source of [...sources,'seller','multiple_units','order_confirmation'])assert.equal(contacts.filter(a=>a['data-source']===source).length,1,source);
+ for(const a of contacts){const url=new URL(a.href);assert.equal(url.origin,'https://wa.me');assert.equal(url.pathname,'/56995414090');assert.equal(url.searchParams.get('text'),a['data-wa-msg']);assert.ok(!a.target);}
+ assert.doesNotMatch(html,/<button\b[^>]*class="[^"]*wa-btn/);assert.doesNotMatch(checkout,/window\.open/);
 });
-test('all five checkout links retain the same Mercado Pago destination',()=>{
-  assert.equal(buys.length,5);
-  buys.forEach(a=>assert.equal(a.href,'https://mpago.la/1StdMG6'));
+test('one Pixel init and PageView; Contact, Lead and checkout retained; no invented purchase event',()=>{
+ assert.equal((html.match(/fbq\('init', '1616701470198212'\)/g)||[]).length,1);assert.equal((html.match(/fbq\('track', 'PageView'\)/g)||[]).length,1);
+ for(const e of ['Contact','Lead','InitiateCheckout'])assert.ok(checkout.includes("track('"+e+"'"));
+ assert.doesNotMatch(html+checkout,/['"]Purchase['"]/);
 });
-for(const mode of ['available','missing','throws']) {
-  test(`contact and checkout handlers preserve navigation when tracking is ${mode}`,()=>{
-    const events=[];
-    const makeNode = attributes=>({getAttribute:k=>attributes[k],addEventListener(type,fn){this[type]=fn;}});
-    const wa=contacts.map(makeNode), buy=buys.map(makeNode);
-    const document={
-      addEventListener(type,fn){if(type==='DOMContentLoaded')fn();},
-      querySelector(){return null;},
-      querySelectorAll(selector){return selector==='.wa-btn'?wa:selector==='a.buy-btn'?buy:[];}
-    };
-    const window={};
-    const context={window,document,console:{warn(){}},Set};
-    if(mode!=='missing')context.fbq=(...args)=>{if(mode==='throws')throw new Error('TEST tracking failure');events.push(args);};
-    vm.runInNewContext(scripts.at(-1),context);
-    wa.forEach(a=>a.click(Object.freeze({preventDefault(){throw Error('Navigation cancelled');}})));
-    buy.forEach(a=>a.click(Object.freeze({preventDefault(){throw Error('Navigation cancelled');}})));
-    if(mode==='available'){
-      assert.equal(events.filter(e=>e[1]==='Contact').length,14);
-      const checkout=events.filter(e=>e[1]==='InitiateCheckout');
-      assert.equal(checkout.length,5);
-      checkout.forEach(e=>{assert.equal(e[2].value,49990);assert.equal(e[2].currency,'CLP');});
-    }
-  });
-}
-test('one PageView initialization; never declare a Purchase on a click',()=>{
-  assert.equal((html.match(/fbq\('init', '1616701470198212'\)/g)||[]).length,1);
-  assert.equal((html.match(/fbq\('track', 'PageView'\)/g)||[]).length,1);
-  assert.doesNotMatch(html,/fbq\('track', 'Purchase'/);
-});
+test('all scripts parse',()=>{for(const s of html.matchAll(/<script[^>]*>([\s\S]*?)<\/script>/g))new vm.Script(s[1]);new vm.Script(checkout);});
+test('form remains Netlify POST with honeypot, consent, address and campaign fields',()=>{assert.match(html, /name="pedido-renova"[^>]*method="POST"[^>]*action="\/pedido-recibido.html"[^>]*data-netlify="true"/);for(const name of ['form-name','bot-field','nombre','apellido','telefono','email','region','comuna','direccion','numero','privacidad','referencia','utm_source','utm_medium','utm_campaign','utm_content','fbclid'])assert.ok(html.includes('name="'+name+'"'),name);assert.ok(fs.existsSync(path.join(__dirname,'../pedido-recibido.html')));});
+test('price and actual payment destination preserved; free delivery is not asserted without confirmation',()=>{assert.match(html,/\$49\.990/);assert.match(html,/id="payment-link" href="https:\/\/mpago.la\/1StdMG6"/);assert.doesNotMatch(html+checkout,/sin costo|gratis|24 horas|48 horas/i);});

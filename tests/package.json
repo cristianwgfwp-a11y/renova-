@@ -1,0 +1,11 @@
+{
+  "name": "renova-360-browser-tests",
+  "private": true,
+  "scripts": {
+    "test": "node --test conversion.test.cjs && node validate.cjs",
+    "unit": "node --test conversion.test.cjs"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
+}
