@@ -1,5 +1,7 @@
 # Revisión integrada Renöva 360 · 16 de octubre de 2026
 
+**Actualización posterior aprobada por el dueño:** $49.990 por doypack, envío gratis a todo Chile, despacho a cargo del vendedor. Avisos de pedido-renova configurados a cristianwgfwp@gmail.com. Estas confirmaciones sustituyen los pendientes comerciales y de destinatario descritos en el diagnóstico histórico de abajo. Ver OPERACION-PEDIDOS.md para el estado operativo actual.
+
 Versión unificada en la rama `audit/conversion-2026-10-16` y el PR #5. Se incorporó el contenido del PR #4 (`2e45000`) sobre la corrección del PR #5 (`7ff9711`), sin fusionar ningún PR ni modificar main.
 
 ## Conflictos resueltos

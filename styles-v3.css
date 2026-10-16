@@ -58,8 +58,8 @@ main { min-width: 0; }
 .confirmation .buy-btn { margin-top: 20px; }
 .dispatch-warning { padding: 18px; border: 1px solid #fbbf24; border-radius: 12px; background: #fffbeb; margin: 18px 0; }
 .coordinate-btn { display: flex; width: 100%; justify-content: center; text-align: center; padding: 14px; min-height: 48px; color: #14532d; background: #dcfce7; font-weight: 700; border: 1px solid #86efac; border-radius: 12px; margin-top: 14px; }
-.confirmation.is-dispatch .coordinate-btn { background: #166534; color: white; }
-.confirmation.is-dispatch .buy-btn { background: white; border: 1px solid #be185d; color: #9d174d; }
+
+
 .confirmation .field-help { margin-top: 14px; }
 .faq-item { background: white; border: 1px solid #e2e8f0; border-radius: 14px; margin-top: 12px; }
 .faq-item summary { cursor: pointer; padding: 20px; font-weight: 600; min-height: 48px; }

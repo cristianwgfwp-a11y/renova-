@@ -74,9 +74,9 @@
             if (['La Serena', 'Coquimbo'].includes(city.value)) city.value = '';
         }
         document.querySelector('#delivery-note').textContent = local
-            ? 'Entrega personal en ' + delivery.value + ', sujeta a horario y disponibilidad. Consulta el costo antes de pagar.'
+            ? 'Entrega local sin costo en ' + delivery.value + ', sujeta a horario y disponibilidad. Coordinamos contigo.'
             : delivery.value === 'Despacho'
-                ? 'Despacho disponible a todo Chile. Coordina costo y modalidad por WhatsApp antes de pagar y del envío. El precio de $49.990 corresponde solo al producto.'
+                ? 'Envío gratis a todo Chile. El vendedor asume el costo del despacho. Total por 1 doypack: $49.990 CLP. Coordinamos contigo los detalles de entrega.'
                 : 'Selecciona cómo deseas recibir tu pedido.';
     }
     delivery.addEventListener('change', updateDelivery);
@@ -109,7 +109,7 @@
             'Hola Cristian. Quiero coordinar mi pedido de RENÖVA+.\n\nReferencia: ' + data.referencia +
             '\nNombre: ' + data.nombre + '\nComuna: ' + data.comuna +
             '\nProducto: RENÖVA+\nPrecio producto: $49.990' +
-            (dispatch ? '\nQuisiera confirmar costo y modalidad de despacho antes de pagar.' : '');
+            '\nEnvío gratis a todo Chile. Quisiera coordinar los detalles de entrega.';
         document.querySelector('#coordinate-order').href = 'https://wa.me/56995414090?text=' + encodeURIComponent(document.querySelector('#coordinate-order').dataset.waMsg);
         form.hidden = true;
         confirmation.hidden = false;

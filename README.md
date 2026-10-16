@@ -8,7 +8,7 @@ Landing estática de RENÖVA+. Se conservan Tailwind CDN, el Pixel y los WebP de
 - El formulario HTML `pedido-renova` usa Netlify Forms, honeypot y POST URL-encoded a `/pedido-recibido.html`. Incluye nombre, apellido, contacto, dirección, entrega, consentimiento, producto, cantidad, precio, fecha UTC, referencia `RNV-` de 12 caracteres aleatorios y atribución de campaña.
 - Solo después de una respuesta HTTP exitosa de Netlify se muestra la confirmación y el enlace exacto `https://mpago.la/1StdMG6`. Errores de red, HTTP o tiempo de espera no habilitan el pago. Se bloquean envíos simultáneos y nuevos envíos después de guardar.
 - Los reintentos mantienen la referencia para facilitar revisión de eventuales duplicados si el servidor recibió el pedido pero se perdió la respuesta. Netlify Forms no ofrece idempotencia transaccional ni confirma pagos.
-- No se promete entrega gratuita sin confirmación del dueño. El costo y la coordinación se consultan antes de pagar. La entrega local fija región Coquimbo y comuna La Serena o Coquimbo. El despacho nacional destaca WhatsApp y advierte que su costo/modalidad deben coordinarse antes de pagar; $49.990 corresponde solo al producto.
+- Condiciones confirmadas por el dueño: $49.990 CLP por doypack, envío gratis a todo Chile y costo de despacho asumido por el vendedor. La entrega local fija región Coquimbo y comuna La Serena o Coquimbo. Se coordinan modalidad y plazo sin prometer fechas no confirmadas. El formulario guarda precio_clp=49990, envio_clp=0 y total_clp=49990 para cantidad 1.
 - La referencia se muestra en pantalla y se incorpora al mensaje de WhatsApp junto con nombre y comuna. No se incluyen teléfono, email, dirección ni comentario en la URL de WhatsApp.
 - No se almacenan datos personales en localStorage/sessionStorage ni se envían como parámetros de eventos. Solo los valores de campaña se conservan durante la sesión. Los campos `url_origen` y `referrer_origen` enviados por la aplicación excluyen query/hash. El nombre propio evita que Netlify sobrescriba el referrer sanitizado; Netlify agrega además sus metadatos de solicitud. No se guardan datos financieros.
 - El correo y la referencia ayudan a Cristian a conciliar manualmente el pago/comprobante y coordinar entrega. El link fijo de Mercado Pago no incorpora automáticamente la referencia.
@@ -36,7 +36,7 @@ Cobertura: 320, 360, 390, 430, 768, 1024 y 1440 px; overflow en secciones y conf
 
 1. Confirmar en Netlify que está habilitada la detección de formularios y que el despliegue detectó `pedido-renova`. No publicar ni fusionar automáticamente.
 2. Enviar un pedido de prueba identificable en el Deploy Preview y comprobar su aparición real en Forms, incluyendo referencia, región/comuna, consentimiento, fecha y UTM. Una respuesta HTTP exitosa por sí sola no demuestra que una cuenta mal configurada conserve el pedido; revisar también entradas filtradas como spam.
-3. Configurar notificaciones desde Netlify Forms si se desean avisos de nuevos pedidos. No se configuraron notificaciones ni envío de correos al comprador en código.
+3. La notificación de nuevas solicitudes de pedido-renova está configurada en Netlify para cristianwgfwp@gmail.com. Ver OPERACION-PEDIDOS.md para pruebas, bandeja de spam y recuperación de falsos positivos. No hay correos automáticos al comprador en código.
 4. En Meta Test Events verificar PageView → Contact / Lead → InitiateCheckout, sin duplicados, y que no se registra compra confirmada. Las pruebas locales verifican las llamadas, no la recepción externa.
 5. Abrir el link de pago sin completar una transacción y confirmar que sigue correspondiendo a 1 RENÖVA+ por $49.990. La conciliación de pago y la coordinación de despacho siguen siendo manuales por WhatsApp.
 6. Revisar en un teléfono real la interacción con teclado, safe area y cualquier badge de Netlify. En el formulario se ocultan los controles flotantes para no cubrir campos.
@@ -56,3 +56,7 @@ Se conservaron las 14 fuentes originales de WhatsApp del PR #5 y las tres adicio
 Las pruebas verifican las 14 fuentes originales, los 17 enlaces, 16 navegaciones con JavaScript deshabilitado (el enlace de confirmación requiere primero guardar con JS), POST nativo sin JS, formulario completo con JS, eventos y distintos tamaños móviles. Los destinos WhatsApp y los POST de esta suite son simulados localmente, sin ventas.
 
 Notificaciones y criterios de aprobación: ver REVISION-INTEGRADA.md. No fusionar el PR #4 por separado después de esta integración. AUDITORIA-CONVERSION.md conserva el diagnóstico de producción previo a la integración.
+
+## Actualización comercial y notificaciones · 16 de octubre
+
+Envío gratis a todo Chile confirmado por el dueño. No se requiere cotizar el despacho antes de pagar; se conservan la coordinación de entrega y conciliación manual del pago. Aviso de nuevas solicitudes de pedido-renova configurado al correo oficial; los registros en spam requieren revisión. Los resultados históricos de pruebas anteriores no equivalen a ventas.

@@ -160,7 +160,7 @@ async function run() {
     assert.equal(order.comuna, 'Coquimbo'); assert.equal(order.privacidad, 'Acepto');
     assert.equal(order.referencia, retryReference); assert.match(order.referencia, /^RNV-[A-F0-9]{12}$/);
     for (const key of ['nombre', 'apellido', 'telefono', 'email', 'region', 'comuna', 'direccion', 'numero', 'tipo_entrega', 'fecha_hora', 'url_origen', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'fbclid']) assert.ok(order[key], key + ' is sent');
-    assert.equal(order.utm_source, 'meta'); assert.equal(order.precio_clp, '49990');
+    assert.equal(order.utm_source, 'meta'); assert.equal(order.precio_clp, '49990'); assert.equal(order.envio_clp,'0'); assert.equal(order.total_clp,'49990');
     assert.ok(!order.url_origen.includes('?'));
     assert.equal(await page.evaluate(() => fbq.queue.filter(item => item[1] === 'Lead').length), 1);
     await page.evaluate(() => document.querySelector('#order-form').requestSubmit());
