@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RENÖVA+ | Colágeno en sobres | La Serena y Coquimbo</title>
-    <meta name="description" content="Conoce RENÖVA+, suplemento en sobres con 11,4 g de proteína de colágeno, vitamina C, zinc, magnesio, resveratrol y CoQ10. Consulta disponibilidad y atención personalizada.">
+    <meta name="description" content="RENÖVA+ sabor berries: 1 doypack con 21 sobres individuales de 15 g, contenido total 315 g. $49.990 CLP y envío gratis a todo Chile.">
     
     <!-- SEO Keywords (Natural integration) -->
     <meta name="keywords" content="RENÖVA+, colágeno, colágeno hidrolizado, colágeno Peptan, colágeno en polvo, La Serena, Coquimbo, suplemento de colágeno">
     
     <!-- Open Graph for Social Media -->
     <meta property="og:title" content="RENÖVA+ | Nutrición para tu rutina diaria">
-    <meta property="og:description" content="11,4 g de proteína de colágeno Peptan® por porción. Atención personalizada en La Serena y Coquimbo.">
+    <meta property="og:description" content="RENÖVA+ sabor berries: 21 sobres individuales de 15 g, contenido total 315 g. $49.990 CLP y envío gratis a todo Chile.">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="es_CL">
 
@@ -107,7 +107,7 @@
         }
         /* Keep long CTA labels inside their buttons, including narrow tablets. */
         .wa-btn { min-width: 0; max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
-        button.wa-btn:focus-visible, button.accordion-btn:focus-visible { outline: 3px solid #be185d; outline-offset: 4px; }
+        .wa-btn:focus-visible, button.accordion-btn:focus-visible { outline: 3px solid #be185d; outline-offset: 4px; }
 
         /* Reserve the lower edge for the Netlify badge and mobile safe area. */
         .whatsapp-floating {
@@ -141,7 +141,7 @@
         .final-purchase .secondary-contact { color: white; }
         .final-purchase a:focus-visible, .final-purchase button:focus-visible { outline-color: white; }
         .buy-btn:focus-visible, .secondary-contact:focus-visible { outline: 3px solid #831843; outline-offset: 4px; }
-        .secondary-contact { display: block; min-height: 44px; padding: 12px 4px; margin: 8px auto 0; color: #831843; font-size: 14px; text-decoration: underline; text-underline-offset: 3px; line-height: 1.5; }
+        .secondary-contact { text-align: center; display: block; min-height: 44px; padding: 12px 4px; margin: 8px auto 0; color: #831843; font-size: 14px; text-decoration: underline; text-underline-offset: 3px; line-height: 1.5; }
         .purchase-hero { padding: 84px 0 32px; }
         .purchase-intro { display: grid; grid-template-columns: minmax(0,1fr) 80px; gap: 12px; align-items: center; }
         .purchase-product img { width: 100%; height: 144px; object-fit: contain; }
@@ -179,13 +179,23 @@
         fbq('track', 'PageView');
     </script>
     <!-- End Meta Pixel Code -->
+<link rel="stylesheet" href="styles-v3.css">
+    <link rel="canonical" href="https://renova-360.netlify.app/">
+    <meta property="og:url" content="https://renova-360.netlify.app/">
+    <meta property="og:image" content="https://renova-360.netlify.app/renova.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="2470">
+    <meta property="og:image:height" content="2470">
+    <meta property="og:image:alt" content="Doypack original de RENÖVA+ sabor berries">
 </head>
 <body class="bg-slate-50 text-brand-dark overflow-x-hidden">
+    <noscript><style>.menu-toggle { display: none !important; }</style></noscript>
     <!-- Meta Pixel fallback for browsers with JavaScript disabled -->
     <noscript><img height="1" width="1" style="display:none" alt=""
         src="https://www.facebook.com/tr?id=1616701470198212&amp;ev=PageView&amp;noscript=1"
     ></noscript>
 
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
     <!-- ================= NAVBAR ================= -->
     <nav class="fixed w-full bg-white/95 backdrop-blur-md border-b border-gray-100 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -194,18 +204,21 @@
                 <div class="flex-shrink-0 flex items-center">
                     <span class="font-bold text-2xl tracking-tighter text-brand-dark">RENÖVA+</span>
                 </div>
+                <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="nav-links">Menú</button>
+                <div class="nav-links" id="nav-links"><a href="#formula">Fórmula</a><a href="#como-comprar">Cómo comprar</a><a href="#faq">Preguntas</a></div>
                 <!-- Nav Action -->
                 <div>
-                    <button class="wa-btn tap-highlight-transparent inline-flex items-center justify-center px-5 py-2 text-sm font-semibold rounded-full bg-brand-dark text-white hover:bg-gray-800 transition-colors"
+                    <a class="wa-btn tap-highlight-transparent inline-flex items-center justify-center px-5 py-2 text-sm font-semibold rounded-full bg-brand-dark text-white hover:bg-gray-800 transition-colors"
                             data-wa-msg="Hola Cristian, vi la información de RENÖVA+ en la página y me gustaría conocerlo mejor."
-                            data-source="navbar">
+                            data-source="navbar" href="https://wa.me/56995414090?text=Hola%20Cristian%2C%20vi%20la%20informaci%C3%B3n%20de%20REN%C3%96VA%2B%20en%20la%20p%C3%A1gina%20y%20me%20gustar%C3%ADa%20conocerlo%20mejor.">
                         Consultar
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
     </nav>
 
+    <main id="contenido">
     <!-- ================= HERO SECTION ================= -->
     <header class="purchase-hero bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -223,20 +236,27 @@
                 <div class="purchase-actions">
                     <p class="text-3xl font-bold text-slate-900">$49.990 <span class="text-sm font-normal">CLP</span></p>
                     <p class="text-sm text-gray-600 mt-1">1 Doypack · 21 sobres individuales</p>
-                    <p class="delivery-summary">Entrega en <strong>La Serena y Coquimbo</strong>.<br>Despacho a <strong>todo Chile</strong>.</p>
-                    <a class="buy-btn" href="https://mpago.la/1StdMG6" data-buy-source="hero">Comprar RENÖVA+ — $49.990</a>
-                    <p class="text-xs text-gray-600 mt-2">Pago en Mercado Pago. Consulta costo y plazo de despacho antes de pagar.</p>
-                    <button class="wa-btn secondary-contact" data-wa-msg="Hola Cristian, vi la información de RENÖVA+ en la página y me gustaría conocerlo mejor." data-source="hero">¿Tienes dudas antes de comprar? Habla conmigo por WhatsApp</button>
+                    <p class="delivery-summary"><strong class="shipping-badge">ENVÍO GRATIS A TODO CHILE</strong></p>
+                    <a class="buy-btn" href="#pedido" data-buy-source="hero">Comprar RENÖVA+ — $49.990</a>
+                    <p class="text-xs text-gray-600 mt-2">Primero registras tu pedido. Después pagas en Mercado Pago.</p>
+                    <a class="wa-btn secondary-contact" data-wa-msg="Hola Cristian, vi la información de RENÖVA+ en la página y me gustaría conocerlo mejor." data-source="hero" href="https://wa.me/56995414090?text=Hola%20Cristian%2C%20vi%20la%20informaci%C3%B3n%20de%20REN%C3%96VA%2B%20en%20la%20p%C3%A1gina%20y%20me%20gustar%C3%ADa%20conocerlo%20mejor.">Tengo una pregunta · WhatsApp</a>
+                    <p class="hero-trust">Pago mediante Mercado Pago · Atención personalizada por WhatsApp</p>
                 </div>
             </div>
         </div>
     </header>
 
+    <section class="v3-section bg-white" id="formula">
+        <div class="v3-container formula-note">
+            <div><p class="eyebrow">Conoce lo que eliges</p><h2 class="v3-heading">Antes de elegir, mira la fórmula.</h2><p class="v3-intro">Revisa los ingredientes, el aporte por porción y la forma de preparación. RENÖVA+ es un suplemento alimentario de colágeno en polvo, en sobres individuales sabor berries.</p></div>
+            <div class="note-panel">Una decisión informada comienza en la etiqueta. El suplemento complementa tu alimentación: no es un medicamento ni reemplaza una alimentación equilibrada. Revisa siempre las indicaciones del envase.</div>
+        </div>
+    </section>
     <!-- ================= INGREDIENTS / WHAT ARE YOU INCORPORATING ================= -->
-    <section class="py-24 bg-white">
+    <section class="py-24 bg-white" id="ingredientes">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 max-w-3xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">¿Qué estás incorporando a tu rutina?</h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Qué contiene RENÖVA+</h2>
                 <p class="text-gray-500 text-lg">Colágeno, vitamina C y minerales en una porción fácil de preparar.</p>
             </div>
             
@@ -245,10 +265,10 @@
                 <!-- Card 1 -->
                 <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-sm transition-shadow">
                     <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center mb-6">
-                        <span class="font-bold text-lg">11,4g</span>
+                        <span class="font-bold text-lg">11,4 g</span>
                     </div>
-                    <h3 class="font-bold text-xl mb-2 text-slate-800">Proteína de colágeno</h3>
-                    <p class="text-gray-600 leading-relaxed">Aporte por cada porción consumida en tu dosis diaria.</p>
+                    <h3 class="font-bold text-xl mb-2 text-slate-800">Proteínas por porción</h3>
+                    <p class="text-gray-600 leading-relaxed">11,4 g de proteínas por porción de 15 g, según la etiqueta del envase.</p>
                 </div>
                 
                 <!-- Card 2 -->
@@ -284,7 +304,7 @@
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
                     </div>
                     <h3 class="font-bold text-xl mb-2 text-slate-800">21 Porciones</h3>
-                    <p class="text-gray-600 leading-relaxed">Cantidad justa diseñada para acompañarte en tu constancia durante el mes.</p>
+                    <p class="text-gray-600 leading-relaxed">1 doypack con 21 sobres individuales de 15 g cada uno. Contenido total: 315 g. Sabor berries.</p>
                 </div>
 
                 <!-- Card 6 -->
@@ -299,11 +319,11 @@
 
             <!-- CTA 2 -->
             <div class="text-center">
-                <button class="wa-btn tap-highlight-transparent inline-flex justify-center items-center px-8 py-4 text-base font-bold rounded-xl bg-brand-dark text-white hover:bg-gray-800 transition-colors shadow-lg hover:shadow-xl"
+                <a class="wa-btn tap-highlight-transparent inline-flex justify-center items-center px-8 py-4 text-base font-bold rounded-xl bg-brand-dark text-white hover:bg-gray-800 transition-colors shadow-lg hover:shadow-xl"
                         data-wa-msg="Hola Cristian, estuve revisando RENÖVA+ y quisiera saber si se adapta a lo que estoy buscando."
-                        data-source="ingredients">
+                        data-source="ingredients" href="https://wa.me/56995414090?text=Hola%20Cristian%2C%20estuve%20revisando%20REN%C3%96VA%2B%20y%20quisiera%20saber%20si%20se%20adapta%20a%20lo%20que%20estoy%20buscando.">
                     QUIERO SABER SI ES PARA MÍ
-                </button>
+                </a>
                 <span class="text-xs text-gray-500 mt-3 block">Puedes consultar tus dudas directamente conmigo antes de decidir.</span>
             </div>
         </div>
@@ -313,8 +333,8 @@
     <section class="py-20 bg-slate-50">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">No te tomará más de un minuto.</h2>
-                <p class="text-gray-500">Una rutina simple es una rutina más fácil de mantener en el tiempo.</p>
+                <h2 class="text-3xl font-bold mb-4">Cómo se consume</h2>
+                <p class="text-gray-500">Disuelve el contenido de un sobre de 15 g en aproximadamente 250 ml de agua. No consumir más de una porción diaria.</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10 relative">
@@ -348,25 +368,34 @@
         </div>
     </section>
 
-    <section class="py-12 bg-brand-50" aria-labelledby="delivery-title">
+    <section class="v3-section bg-white" id="como-comprar">
+        <div class="v3-container"><p class="eyebrow">De tu pedido a tu puerta</p><h2 class="v3-heading">Así funciona la compra.</h2>
+        <p class="v3-intro">Primero sabemos quién eres y dónde entregar. Tú decides cuándo avanzar al pago.</p>
+        <div class="steps">
+            <div class="step"><h3>Completa tus datos</h3><p>Registra tu contacto y dirección. Recibirás una referencia de pedido en pantalla.</p></div>
+            <div class="step"><h3>Confirmamos dónde entregar</h3><p>Registra tu comuna y dirección. El envío es gratis a todo Chile; Cristian coordina contigo la entrega.</p></div>
+            <div class="step"><h3>Realizas el pago seguro</h3><p>Continúa a Mercado Pago para pagar $49.990 por 1 unidad. Usa preferentemente el mismo correo del pedido.</p></div>
+            <div class="step"><h3>Coordinamos tu entrega</h3><p>Después del pago, envía el comprobante y tu referencia por WhatsApp. Cristian verifica el pago y coordina contigo.</p></div>
+        </div></div>
+    </section>
+    <section id="entrega" class="py-12 bg-brand-50" aria-labelledby="delivery-title">
         <div class="max-w-4xl mx-auto px-4">
             <h2 id="delivery-title" class="text-2xl md:text-3xl font-bold mb-4">Entrega y despacho</h2>
             <div class="grid md:grid-cols-2 gap-6 text-slate-700">
-                <div><h3 class="font-bold mb-2">La Serena y Coquimbo</h3><p>Coordinamos la entrega directamente contigo, según disponibilidad de horario.</p></div>
-                <div><h3 class="font-bold mb-2">Despacho a todo Chile</h3><p>Consulta por WhatsApp el costo, plazo y cobertura para tu dirección antes de pagar.</p></div>
+                <div><h3 class="font-bold mb-2">La Serena y Coquimbo</h3><p>Entrega local sin costo, según horario y disponibilidad. Coordinamos los detalles directamente contigo.</p></div>
+                <div><h3 class="font-bold mb-2">Despacho a todo Chile</h3><p>Envío gratis a todo Chile. Coordinamos contigo la modalidad y el plazo de entrega.</p></div>
             </div>
-            <p class="mt-4 text-sm text-slate-600">Compra de 1 Doypack por $49.990 mediante Mercado Pago. Para packs y compras por volumen, consulta las condiciones con Cristian.</p>
+            <p class="mt-4 text-sm text-slate-600">Compra de 1 Doypack por $49.990 mediante Mercado Pago. ¿Quieres 2 o más unidades? Consulta disponibilidad por WhatsApp.</p>
         </div>
     </section>
 
     <!-- ================= TRUST / SELLER SECTION ================= -->
-    <section class="py-24 bg-white border-y border-gray-100">
+    <section class="py-24 bg-white border-y border-gray-100" id="vendedor">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 
                 <!-- Placeholder para Foto de Cristian -->
                 <div class="relative w-full max-w-md mx-auto aspect-square rounded-3xl overflow-hidden bg-slate-100 border border-slate-200">
-                    <!-- REEMPLAZAR ESTA IMAGEN: Sube una foto tuya (Cristian) amigable, profesional, estilo retrato (idealmente cuadrada) a la misma carpeta y reemplaza src="cristian.png". -->
                     <picture class="block w-full h-full">
                         <source srcset="cristian.webp" type="image/webp">
                         <img src="./cristian.png" width="1254" height="1254" loading="lazy" decoding="async" alt="Cristian - Atención RENÖVA+" class="w-full h-full object-cover">
@@ -382,9 +411,9 @@
                     <div class="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-semibold mb-6 border border-blue-100 uppercase tracking-wider">
                         Atención Personalizada
                     </div>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-slate-900">Hola, soy Cristian 👋</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-slate-900">¿Tienes dudas antes de comprar?</h2>
                     <div class="text-lg text-gray-600 space-y-4 mb-8">
-                        <p>Estoy ubicado en <strong>La Serena</strong> y atiendo personalmente las consultas sobre RENÖVA+.</p>
+                        <p>Soy <strong>Cristian</strong>, estoy ubicado en <strong>La Serena</strong> y atiendo personalmente las consultas sobre RENÖVA+.</p>
                         <p>Mi objetivo es que tengas la información clara antes de decidir tu compra. Si estás en La Serena o Coquimbo, puedo ayudarte a resolver tus dudas y coordinar la entrega según disponibilidad de forma directa.</p>
                         <p>Si eres de otra región, también puedes escribirme para consultar las opciones de despacho disponibles.</p>
                     </div>
@@ -403,211 +432,80 @@
                             Coordinación directa de entrega por WhatsApp.
                         </li>
                     </ul>
+                    <a class="wa-btn coordinate-btn" data-source="seller" data-wa-msg="Hola Cristian, quiero consultar sobre RENÖVA+ antes de comprar." href="https://wa.me/56995414090?text=Hola%20Cristian%2C%20quiero%20consultar%20sobre%20REN%C3%96VA%2B%20antes%20de%20comprar.">Hablar con Cristian por WhatsApp</a>
                 </div>
             </div>
         </div>
     </section>
 
-       <!-- ================= PRICE BLOCK ================= -->
-    <section class="py-16 bg-white border-b border-gray-100">
-        <div class="max-w-3xl mx-auto px-4 text-center">
-            <h2 class="text-2xl font-bold mb-2">Valor del producto</h2>
-            <div class="flex justify-center items-end gap-2 mb-4 mt-6">
-                <span class="text-5xl font-bold text-slate-900">$49.990</span>
-                <span class="text-gray-500 mb-1 font-medium">CLP</span>
+    <section class="v3-section trust-section bg-white" aria-labelledby="trust-title"><div class="v3-container"><h2 class="v3-heading" id="trust-title">Compra con confianza</h2><ul class="trust-strip"><li><span aria-hidden="true">✓</span> Pago mediante Mercado Pago</li><li><span aria-hidden="true">✓</span> Envío gratis a todo Chile</li><li><span aria-hidden="true">✓</span> Atención personalizada por WhatsApp</li></ul></div></section>
+    <section class="v3-section order-section" id="pedido" aria-labelledby="order-title">
+      <div class="v3-container"><p class="eyebrow">Tu pedido, paso a paso</p><h2 class="v3-heading" id="order-title" tabindex="-1">Compra RENÖVA+ · $49.990</h2><p class="v3-intro">Deja tus datos para identificar tu pedido y coordinar la entrega. Guardarlos todavía no confirma una compra ni un pago.</p>
+      <div class="order-layout">
+        <aside class="order-summary"><img src="renova.webp" width="120" height="120" loading="lazy" alt="RENÖVA+ sabor berries"><h3 class="text-xl font-bold">RENÖVA+</h3><p>1 doypack · 21 sobres individuales de 15 g · 315 g en total · Sabor berries</p><p class="price">$49.990 <span class="text-sm">CLP</span></p><p>Envío gratis a todo Chile. </p><p>Coordinamos contigo la modalidad y el plazo de entrega.</p><p>¿Quieres 2 o más unidades?</p><a class="wa-btn coordinate-btn" data-source="multiple_units" data-wa-msg="Hola Cristian, quisiera consultar disponibilidad de 2 o más unidades de RENÖVA+." href="https://wa.me/56995414090?text=Hola%20Cristian%2C%20quisiera%20consultar%20disponibilidad%20de%202%20o%20m%C3%A1s%20unidades%20de%20REN%C3%96VA%2B.">Consultar disponibilidad</a></aside>
+        <div class="order-card">
+          <form name="pedido-renova" id="order-form" method="POST" action="/pedido-recibido.html" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="pedido-renova">
+            <p hidden><label>No completar este campo <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+            <input type="hidden" name="referencia" value="">
+<input type="hidden" name="fecha_hora" value="">
+<input type="hidden" name="url_origen" value="">
+<input type="hidden" name="referrer_origen" value="">
+<input type="hidden" name="utm_source" value="">
+<input type="hidden" name="utm_medium" value="">
+<input type="hidden" name="utm_campaign" value="">
+<input type="hidden" name="utm_content" value="">
+<input type="hidden" name="fbclid" value="">
+            <input type="hidden" name="producto" value="RENÖVA+ · 1 doypack · 21 sobres individuales de 15 g · 315 g · Sabor berries"><input type="hidden" name="cantidad" value="1"><input type="hidden" name="precio_clp" value="49990"><input type="hidden" name="envio_clp" value="0"><input type="hidden" name="total_clp" value="49990">
+            <p class="text-sm text-slate-600 mb-6">Tu pedido: 1 doypack con 21 sobres individuales de 15 g · 315 g · Sabor berries. Completa tus datos de contacto y entrega. La referencia de dirección es opcional.</p>
+            <div class="order-grid"><div><label for="nombre">Nombre</label><input id="nombre" name="nombre" type="text" autocomplete="given-name" required maxlength="120"></div>
+<div><label for="apellido">Apellido</label><input id="apellido" name="apellido" type="text" autocomplete="family-name" required maxlength="120"></div>
+<div class="mobile-full"><label for="telefono">WhatsApp / teléfono</label><input id="telefono" name="telefono" type="tel" autocomplete="tel" required inputmode="tel" minlength="8" maxlength="25" aria-describedby="telefono-help"><p id="telefono-help" class="field-help">Incluye el código de país, por ejemplo +56 9 1234 5678.</p></div>
+<div class="mobile-full"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required maxlength="254"></div>
+            <div class="full-field"><label for="tipo_entrega">Tipo de entrega</label><select name="tipo_entrega" id="tipo_entrega" required aria-describedby="delivery-note"><option value="">Selecciona una opción</option><option value="La Serena">Entrega La Serena</option><option value="Coquimbo">Entrega Coquimbo</option><option value="Despacho">Despacho a otra comuna / región</option></select><p class="delivery-note" id="delivery-note" aria-live="polite">Selecciona cómo deseas recibir tu pedido.</p></div>
+            <div><label for="region">Región</label><select name="region" id="region" required autocomplete="address-level1"><option value="">Selecciona tu región</option><option>Arica y Parinacota</option><option>Tarapacá</option><option>Antofagasta</option><option>Atacama</option><option>Coquimbo</option><option>Valparaíso</option><option>Metropolitana de Santiago</option><option>Libertador General Bernardo O’Higgins</option><option>Maule</option><option>Ñuble</option><option>Biobío</option><option>La Araucanía</option><option>Los Ríos</option><option>Los Lagos</option><option>Aysén del General Carlos Ibáñez del Campo</option><option>Magallanes y de la Antártica Chilena</option></select></div>
+            <div><label for="comuna">Comuna / ciudad</label><input id="comuna" name="comuna" type="text" autocomplete="address-level2" required maxlength="120"></div>
+<div class="mobile-full"><label for="direccion">Dirección (calle o camino)</label><input id="direccion" name="direccion" type="text" autocomplete="address-line1" required maxlength="120"></div>
+<div class="mobile-full"><label for="numero">Número de casa / departamento</label><input id="numero" name="numero" type="text" autocomplete="address-line2" required maxlength="120"><p class="field-help">Si no corresponde, escribe “Sin número”.</p></div>
+            <details class="address-reference full-field"><summary>Añadir referencia o comentario (opcional)</summary><div><label for="comentario">Referencia de dirección / comentario de entrega (opcional)</label><textarea id="comentario" name="comentario" rows="2" maxlength="500"></textarea></div></details>
             </div>
-            <p class="text-gray-600 mb-8">Valor por 1 Doypack · Contiene 21 sobres individuales</p>
-            
-            <a class="buy-btn" href="https://mpago.la/1StdMG6" data-buy-source="price">Comprar RENÖVA+ — $49.990</a>
-                    <button class="wa-btn secondary-contact"
-                    data-wa-msg="Hola Cristian, vi RENÖVA+ a $49.990 y quisiera consultar disponibilidad."
-                    data-source="price">¿Tienes dudas antes de comprar? Habla conmigo por WhatsApp</button>
+            <label class="privacy-label" for="privacidad"><input type="checkbox" id="privacidad" name="privacidad" value="Acepto" required><span>Tus datos serán utilizados únicamente para procesar y coordinar tu pedido. Acepto este uso de mis datos.</span></label>
+            <button type="submit" class="buy-btn" id="submit-order">Guardar mis datos y continuar</button>
+            <p class="field-help">En el siguiente paso podrás revisar tu referencia, coordinar el despacho y continuar al pago.</p>
+            <p class="order-status" id="order-status" role="status" aria-live="polite"></p>
+            <noscript><p class="delivery-note">Al enviar tus datos verás la página de recepción de Netlify. Para identificar tu solicitud y coordinar el pago, usa el enlace de WhatsApp de la página de recepción.</p></noscript>
+          </form>
+          <section class="confirmation" id="order-confirmation" hidden aria-labelledby="confirmation-title">
+            <p class="eyebrow">Datos recibidos</p><h3 id="confirmation-title" tabindex="-1">Tus datos fueron recibidos.</h3><p>Ahora puedes continuar al pago seguro de RENÖVA+. Guarda tu referencia para coordinar la entrega con Cristian.</p>
+            <dl><div><dt>Nombre</dt><dd id="confirm-name"></dd></div><div><dt>Comuna / ciudad</dt><dd id="confirm-city"></dd></div><div><dt>Tipo de entrega</dt><dd id="confirm-delivery"></dd></div><div><dt>Referencia de pedido</dt><dd id="confirm-reference"></dd></div></dl>
+            <div class="dispatch-warning" id="dispatch-warning" hidden><strong>Envío gratis a todo Chile.</strong><p>Tu total por 1 doypack es $49.990 CLP. Coordinamos contigo los detalles de entrega.</p></div>
+            <a class="wa-btn coordinate-btn" id="coordinate-order" data-source="order_confirmation" data-wa-msg="Hola Cristian, quiero coordinar mi pedido de RENÖVA+." href="https://wa.me/56995414090?text=Hola%20Cristian%2C%20quiero%20coordinar%20mi%20pedido%20de%20REN%C3%96VA%2B.">Coordinar por WhatsApp</a>
+            <a class="buy-btn" id="payment-link" href="https://mpago.la/1StdMG6" target="_blank" rel="noopener noreferrer">Pagar $49.990 con Mercado Pago</a>
+            <p class="field-help">El pago se abre en una nueva pestaña. En Mercado Pago utiliza preferentemente el mismo correo que ingresaste en tu pedido para facilitar la identificación.</p>
+            <p class="delivery-note">Después de pagar, envía tu comprobante y la referencia por WhatsApp. Cristian verificará el pago y coordinará contigo la entrega. Esta página no confirma automáticamente el pago.</p>
+          </section>
         </div>
+      </div></div>
     </section>
 
-    <!-- ================= IDENTIFICATION SECTION ================= -->
-    <section class="py-20 bg-slate-50 border-t border-gray-100">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-4 text-slate-900">¿Qué te llevó a conocer RENÖVA+?</h2>
-                <p class="text-gray-600">Selecciona el tema que más te interese para conversar al respecto.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
-                <!-- ID 1 -->
-                <button class="wa-btn group text-left bg-white p-6 rounded-2xl border border-slate-200 hover:border-brand-300 hover:shadow-md transition-all duration-300 flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-brand-500 tap-highlight-transparent"
-                        data-wa-msg="Hola Cristian, vi RENÖVA+ y me interesó principalmente por cabello, piel o uñas."
-                        data-source="id_piel_unas">
-                    <span class="font-semibold text-slate-800 group-hover:text-brand-600 transition-colors">Cabello, piel o uñas</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-brand-500 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                </button>
-
-                <!-- ID 2 -->
-                <button class="wa-btn group text-left bg-white p-6 rounded-2xl border border-slate-200 hover:border-brand-300 hover:shadow-md transition-all duration-300 flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-brand-500 tap-highlight-transparent"
-                        data-wa-msg="Hola Cristian, vi RENÖVA+ y quisiera conocerlo mejor porque me interesa el tema de articulaciones y movilidad."
-                        data-source="id_articulaciones">
-                    <span class="font-semibold text-slate-800 group-hover:text-brand-600 transition-colors">Articulaciones y movilidad</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-brand-500 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                </button>
-
-                <!-- ID 3 -->
-                <button class="wa-btn group text-left bg-white p-6 rounded-2xl border border-slate-200 hover:border-brand-300 hover:shadow-md transition-all duration-300 flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-brand-500 tap-highlight-transparent"
-                        data-wa-msg="Hola Cristian, estoy buscando incorporar colágeno a mi rutina y quisiera conocer RENÖVA+."
-                        data-source="id_rutina">
-                    <span class="font-semibold text-slate-800 group-hover:text-brand-600 transition-colors">Incorporar colágeno a mi rutina</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-brand-500 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                </button>
-
-                <!-- ID 4 -->
-                <button class="wa-btn group text-left bg-white p-6 rounded-2xl border border-slate-200 hover:border-brand-300 hover:shadow-md transition-all duration-300 flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-brand-500 tap-highlight-transparent"
-                        data-wa-msg="Hola Cristian, vi RENÖVA+ y quisiera conocer mejor sus ingredientes."
-                        data-source="id_ingredientes">
-                    <span class="font-semibold text-slate-800 group-hover:text-brand-600 transition-colors">Conocer mejor sus ingredientes</span>
-                    <svg class="w-5 h-5 text-gray-400 group-hover:text-brand-500 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                </button>
-            </div>
-            <p class="text-center text-xs text-gray-400 mt-6 max-w-2xl mx-auto">Estas opciones nos ayudan a brindarte una mejor orientación. RENÖVA+ es un suplemento alimentario y sus resultados dependen de factores individuales.</p>
-        </div>
-    </section>
-
-    <!-- ================= PURCHASING OPTIONS ================= -->
-    <section class="py-24 bg-white border-t border-gray-100 relative" id="opciones-compra">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Opciones de compra</h2>
-                <p class="text-gray-500 text-lg">Selecciona la alternativa que mejor se adapte a ti.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 xl:grid-cols-3 gap-8 max-w-xl xl:max-w-6xl mx-auto items-stretch mt-8">
-                
-                <!-- Opción 1: 1 Doypack -->
-                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow flex flex-col relative mt-6 xl:mt-0">
-                    <div class="mb-6 text-center">
-                        <h3 class="text-2xl font-bold text-slate-900 mb-1">1 Doypack</h3>
-                        <p class="text-gray-500 text-sm font-medium">Para comenzar</p>
-                    </div>
-                    <div class="mb-6 text-center">
-                        <span class="text-4xl font-extrabold text-slate-900">$49.990</span>
-                    </div>
-                    <ul class="text-slate-600 space-y-3 mb-8 flex-grow">
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-brand-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            <span>21 sobres individuales.</span>
-                        </li>
-                    </ul>
-                    <a class="buy-btn" href="https://mpago.la/1StdMG6" data-buy-source="price_1">Comprar RENÖVA+ — $49.990</a>
-                    <button class="wa-btn secondary-contact"
-                            data-wa-msg="Hola Cristian, estoy interesado/a en 1 Doypack de RENÖVA+ a $49.990 y quisiera consultar disponibilidad."
-                            data-source="price_1">¿Tienes dudas antes de comprar? Habla conmigo por WhatsApp</button>
-                </div>
-
-                <!-- Opción 2: 3 Doypacks (Destacada ligeramente) -->
-                <div class="bg-slate-50 p-8 rounded-3xl border-2 border-brand-200 shadow-md transform xl:-translate-y-4 flex flex-col relative mt-6 xl:mt-0">
-                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                        <span class="bg-brand-600 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider whitespace-nowrap shadow-sm">Pack continuidad</span>
-                    </div>
-                    <div class="mb-6 text-center mt-2">
-                        <h3 class="text-2xl font-bold text-slate-900 mb-1">3 Doypacks</h3>
-                    </div>
-                    <div class="mb-6 text-center">
-                        <span class="text-4xl font-extrabold text-slate-900">$149.970</span>
-                    </div>
-                    <div class="text-slate-600 space-y-4 mb-8 flex-grow">
-                        <div class="flex items-start">
-                            <svg class="w-5 h-5 text-brand-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            <span>63 sobres en total · 3 Doypacks de 21 sobres.</span>
-                        </div>
-                        <p class="text-sm italic text-slate-500 bg-white p-3 rounded-lg border border-slate-100">
-                            "Una alternativa para quienes prefieren tener producto disponible por más tiempo."
-                        </p>
-                    </div>
-                    <button class="wa-btn tap-highlight-transparent w-full py-4 px-6 rounded-xl font-bold text-white bg-brand-600 hover:bg-brand-700 transition-colors shadow-lg shadow-brand-500/30 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2"
-                            data-wa-msg="Hola Cristian, me interesa el pack de 3 Doypacks de RENÖVA+ por $149.970 y quisiera conocer disponibilidad."
-                            data-source="price_3">
-                        CONSULTAR PACK 3 DOYPACKS
-                    </button>
-                </div>
-
-                <!-- Opción 3: 7 Doypacks o más -->
-                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow flex flex-col relative mt-6 xl:mt-0">
-                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                        <span class="bg-slate-200 text-slate-700 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider whitespace-nowrap">Descuento por volumen</span>
-                    </div>
-                    <div class="mb-6 text-center mt-2">
-                        <h3 class="text-2xl font-bold text-slate-900 mb-1">7 Doypacks o más</h3>
-                    </div>
-                    <div class="text-slate-600 space-y-3 mb-8 flex-grow flex items-center justify-center text-center">
-                        <p class="text-slate-700">Consulta las condiciones disponibles para compras desde 7 Doypacks.</p>
-                    </div>
-                    <button class="wa-btn tap-highlight-transparent w-full py-4 px-6 rounded-xl font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-200 focus:ring-offset-2"
-                            data-wa-msg="Hola Cristian, quisiera conocer el valor y las condiciones para comprar 7 o más Doypacks de RENÖVA+."
-                            data-source="price_7plus">
-                        CONSULTAR DESCUENTO
-                    </button>
-                </div>
-                
-            </div>
-            
-            <!-- Texto de apoyo de opciones -->
-            <div class="text-center mt-12 max-w-2xl mx-auto">
-                <p class="text-gray-600 font-medium">¿No sabes qué opción elegir? Escríbeme y te explico las alternativas sin compromiso.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================= FREQUENTLY ASKED QUESTIONS ================= -->
-    <section class="py-20 bg-slate-50" id="faq">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold mb-10 text-center">Preguntas Frecuentes</h2>
-
-            <div class="space-y-4">
-                <!-- FAQ Item 1 -->
-                <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
-                    <button class="accordion-btn w-full px-6 py-4 text-left font-semibold flex justify-between items-center text-slate-800 focus:outline-none tap-highlight-transparent" aria-expanded="false">
-                        <span>¿Cómo debo preparar RENÖVA+?</span>
-                        <svg class="accordion-icon w-5 h-5 text-gray-500 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="accordion-content px-6 bg-slate-50">
-                        <p class="text-gray-600 text-sm pb-4">Te recomendamos disolver el contenido de un sobre en un vaso de agua (aprox. 250ml) y revolver bien. Puedes tomarlo a la hora que más te acomode.</p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 2 -->
-                <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
-                    <button class="accordion-btn w-full px-6 py-4 text-left font-semibold flex justify-between items-center text-slate-800 focus:outline-none tap-highlight-transparent" aria-expanded="false">
-                        <span>¿Cuántos sobres vienen en cada Doypack?</span>
-                        <svg class="accordion-icon w-5 h-5 text-gray-500 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="accordion-content px-6 bg-slate-50">
-                        <p class="text-gray-600 text-sm pb-4">Cada Doypack contiene 21 sobres individuales, lo que representa 21 porciones de la formulación.</p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 3 -->
-                <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
-                    <button class="accordion-btn w-full px-6 py-4 text-left font-semibold flex justify-between items-center text-slate-800 focus:outline-none tap-highlight-transparent" aria-expanded="false">
-                        <span>¿Cómo funciona el proceso de atención y compra?</span>
-                        <svg class="accordion-icon w-5 h-5 text-gray-500 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="accordion-content px-6 bg-slate-50">
-                        <p class="text-gray-600 text-sm pb-4">El botón Comprar abre Mercado Pago para pagar 1 Doypack por $49.990. Si necesitas confirmar despacho, disponibilidad o tienes dudas, usa WhatsApp para hablar con Cristian antes de pagar.</p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 4 -->
-                <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
-                    <button class="accordion-btn w-full px-6 py-4 text-left font-semibold flex justify-between items-center text-slate-800 focus:outline-none tap-highlight-transparent" aria-expanded="false">
-                        <span>¿Hacen entregas presenciales?</span>
-                        <svg class="accordion-icon w-5 h-5 text-gray-500 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="accordion-content px-6 bg-slate-50">
-                        <p class="text-gray-600 text-sm pb-4">Sí, para las comunas de La Serena y Coquimbo podemos coordinar la entrega personalmente según disponibilidad de horario. Escríbenos para organizar los detalles.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+<section class="v3-section bg-white" id="consultas"><div class="v3-container"><details class="faq-item"><summary>Otras consultas y opciones por WhatsApp</summary><div class="contact-options"><a class="wa-btn coordinate-btn" data-source="price" data-wa-msg="Hola Cristian, vi RENÖVA+ a $49.990 y quisiera consultar disponibilidad." href="https://wa.me/56995414090?text=Hola%20Cristian%2C%20vi%20REN%C3%96VA%2B%20a%20%2449.990%20y%20quisiera%20consultar%20disponibilidad.">Consultar precio de 1 Doypack</a>
+<a class="wa-btn coordinate-btn" data-source="id_piel_unas" data-wa-msg="Hola Cristian, vi RENÖVA+ y me interesó principalmente por cabello, piel o uñas." href="https://wa.me/56995414090?text=Hola%20Cristian%2C%20vi%20REN%C3%96VA%2B%20y%20me%20interes%C3%B3%20principalmente%20por%20cabello%2C%20piel%20o%20u%C3%B1as.">Cabello, piel o uñas</a>
+<a class="wa-btn coordinate-btn" data-source="id_articulaciones" data-wa-msg="Hola Cristian, vi RENÖVA+ y quisiera conocerlo mejor porque me interesa el tema de articulaciones y movilidad." href="https://wa.me/56995414090?text=Hola%20Cristian%2C%20vi%20REN%C3%96VA%2B%20y%20quisiera%20conocerlo%20mejor%20porque%20me%20interesa%20el%20tema%20de%20articulaciones%20y%20movilidad.">Articulaciones y movilidad</a>
+<a class="wa-btn coordinate-btn" data-source="id_rutina" data-wa-msg="Hola Cristian, estoy buscando incorporar colágeno a mi rutina y quisiera conocer RENÖVA+." href="https://wa.me/56995414090?text=Hola%20Cristian%2C%20estoy%20buscando%20incorporar%20col%C3%A1geno%20a%20mi%20rutina%20y%20quisiera%20conocer%20REN%C3%96VA%2B.">Incorporar colágeno a mi rutina</a>
+<a class="wa-btn coordinate-btn" data-source="id_ingredientes" data-wa-msg="Hola Cristian, vi RENÖVA+ y quisiera conocer mejor sus ingredientes." href="https://wa.me/56995414090?text=Hola%20Cristian%2C%20vi%20REN%C3%96VA%2B%20y%20quisiera%20conocer%20mejor%20sus%20ingredientes.">Conocer mejor sus ingredientes</a>
+<a class="wa-btn coordinate-btn" data-source="price_1" data-wa-msg="Hola Cristian, estoy interesado/a en 1 Doypack de RENÖVA+ a $49.990 y quisiera consultar disponibilidad." href="https://wa.me/56995414090?text=Hola%20Cristian%2C%20estoy%20interesado%2Fa%20en%201%20Doypack%20de%20REN%C3%96VA%2B%20a%20%2449.990%20y%20quisiera%20consultar%20disponibilidad.">Consultar disponibilidad de 1 Doypack</a>
+<a class="wa-btn coordinate-btn" data-source="price_3" data-wa-msg="Hola Cristian, me interesa el pack de 3 Doypacks de RENÖVA+ por $149.970 y quisiera conocer disponibilidad." href="https://wa.me/56995414090?text=Hola%20Cristian%2C%20me%20interesa%20el%20pack%20de%203%20Doypacks%20de%20REN%C3%96VA%2B%20por%20%24149.970%20y%20quisiera%20conocer%20disponibilidad.">Consultar pack de 3 Doypacks</a>
+<a class="wa-btn coordinate-btn" data-source="price_7plus" data-wa-msg="Hola Cristian, quisiera conocer el valor y las condiciones para comprar 7 o más Doypacks de RENÖVA+." href="https://wa.me/56995414090?text=Hola%20Cristian%2C%20quisiera%20conocer%20el%20valor%20y%20las%20condiciones%20para%20comprar%207%20o%20m%C3%A1s%20Doypacks%20de%20REN%C3%96VA%2B.">Consultar 7 Doypacks o más</a></div></details></div></section>
+    <section class="v3-section bg-slate-50" id="faq"><div class="v3-container" style="max-width: 780px"><p class="eyebrow">Resuelve tus dudas</p><h2 class="v3-heading">Preguntas frecuentes</h2><details class="faq-item"><summary>¿Cuál es el precio?</summary><p>Una unidad de RENÖVA+ cuesta $49.990 CLP. Incluye 1 doypack con 21 sobres individuales de 15 g cada uno, contenido total de 315 g, sabor berries. Para 2 o más unidades, consulta disponibilidad por WhatsApp.</p></details>
+<details class="faq-item"><summary>¿Cómo se consume?</summary><p>Disuelve el contenido de un sobre de 15 g en aproximadamente 250 ml de agua. No consumir más de una porción diaria. Sigue las indicaciones del envase.</p></details>
+<details class="faq-item"><summary>¿Qué alérgenos y advertencias indica la etiqueta?</summary><p>Puede contener sésamo, gluten, soya, leche y huevo. No se recomienda para menores de 15 años, durante el embarazo ni la lactancia. No consumir más de una porción diaria.</p></details>
+<details class="faq-item"><summary>¿Cómo compro y dónde ingreso mi dirección?</summary><p>Pulsa Comprar y completa el formulario con tu contacto, región, comuna y dirección. Al guardar los datos, verás tu referencia de pedido y las opciones para coordinar o pagar.</p></details>
+<details class="faq-item"><summary>¿Cómo pago? ¿Es seguro?</summary><p>Después de registrar tus datos, pulsa Pagar $49.990 con Mercado Pago. El pago se procesa en Mercado Pago; esta página no solicita ni guarda datos de tu tarjeta.</p></details>
+<details class="faq-item"><summary>¿Cómo funciona la entrega en La Serena / Coquimbo?</summary><p>La entrega local es sin costo. Se coordina según horario y disponibilidad. Registramos tu dirección y coordinamos los detalles contigo por WhatsApp.</p></details>
+<details class="faq-item"><summary>¿Realizan despacho a otras regiones?</summary><p>Sí. El envío es gratis a todo Chile. El precio es $49.990 CLP por doypack, sin cargo adicional de envío. Coordinamos contigo el plazo y la modalidad de entrega.</p></details>
+<details class="faq-item"><summary>¿Qué sucede después del pago? ¿Cómo identifican mi pedido?</summary><p>Usa preferentemente el mismo correo del formulario en Mercado Pago. Después de pagar, envía tu comprobante y referencia de pedido a Cristian por WhatsApp. Él verificará el pago y coordinará la entrega. Guardar el formulario o abrir Mercado Pago no confirma un pago.</p></details>
+<details class="faq-item"><summary>¿Puedo hablar con alguien antes de comprar?</summary><p>Sí. Cristian atiende directamente desde La Serena. Puedes consultar por WhatsApp antes de registrar tus datos o pagar.</p></details>
+<details class="faq-item"><summary>¿RENÖVA+ es un medicamento?</summary><p>No. Es un suplemento alimentario y no reemplaza una alimentación equilibrada. Revisa las indicaciones y advertencias del envase.</p></details></div></section>
     <!-- ================= FINAL CTA ================= -->
     <section class="final-purchase py-20 bg-brand-900 relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-r from-brand-900 to-brand-700 opacity-90"></div>
@@ -617,16 +515,17 @@
             <h2 class="text-3xl md:text-4xl font-bold mb-6">¿Listo para incorporar RENÖVA+ a tu rutina?</h2>
             <p class="text-lg mb-10 text-brand-100">Compra 1 Doypack por $49.990 o conversa con Cristian si necesitas orientación.</p>
             
-            <a class="buy-btn" href="https://mpago.la/1StdMG6" data-buy-source="final_cta">Comprar RENÖVA+ — $49.990</a>
-                    <button class="wa-btn secondary-contact"
+            <a class="buy-btn" href="#pedido" data-buy-source="final_cta">Comprar RENÖVA+ — $49.990</a>
+                    <a class="wa-btn secondary-contact"
                     data-wa-msg="Hola Cristian, vi RENÖVA+ a $49.990 y quisiera consultar disponibilidad."
-                    data-source="final_cta">¿Tienes dudas antes de comprar? Habla conmigo por WhatsApp</button>
+                    data-source="final_cta" href="https://wa.me/56995414090?text=Hola%20Cristian%2C%20vi%20REN%C3%96VA%2B%20a%20%2449.990%20y%20quisiera%20consultar%20disponibilidad.">¿Tienes dudas antes de comprar? Habla conmigo por WhatsApp</a>
         </div>
     </section>
 
+    </main>
     <aside class="mobile-buy-bar" aria-label="Compra rápida">
         <span><strong>RENÖVA+</strong><br>$49.990</span>
-        <a class="buy-btn" href="https://mpago.la/1StdMG6" data-buy-source="mobile_bar">Comprar</a>
+        <a class="buy-btn" href="#pedido" data-buy-source="mobile_bar">Comprar</a>
     </aside>
 
     <!-- ================= FOOTER ================= -->
@@ -638,7 +537,7 @@
                 <div class="md:col-span-5">
                     <span class="font-bold text-3xl tracking-tighter text-white block mb-4">RENÖVA+</span>
                     <p class="text-gray-400 text-sm mb-6 pr-4 leading-relaxed">
-                        Nutrición para tu rutina diaria. Formulación en polvo para reconstituir con 11,4g de proteína de colágeno, vitaminas y minerales.
+                        RENÖVA+ sabor berries. 1 doypack con 21 sobres individuales de 15 g. Contenido total: 315 g. Aporta 11,4 g de proteínas por porción de 15 g.
                     </p>
                 </div>
                 
@@ -647,12 +546,12 @@
                     <h3 class="text-white font-semibold mb-4">Atención al Cliente</h3>
                     <ul class="space-y-3">
                         <li>
-                            <button class="wa-btn text-gray-400 hover:text-white transition-colors text-sm flex items-center tap-highlight-transparent"
+                            <a class="wa-btn text-gray-400 hover:text-white transition-colors text-sm flex items-center tap-highlight-transparent"
                                     data-wa-msg="Hola Cristian, quisiera hacer una consulta de atención al cliente."
-                                    data-source="footer">
+                                    data-source="footer" href="https://wa.me/56995414090?text=Hola%20Cristian%2C%20quisiera%20hacer%20una%20consulta%20de%20atenci%C3%B3n%20al%20cliente.">
                                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
                                 Contactar por WhatsApp
-                            </button>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -662,13 +561,13 @@
                     <h3 class="text-white font-semibold mb-4">Aviso Importante</h3>
                     <div class="bg-gray-800/80 p-4 rounded-xl border border-gray-700 text-xs text-gray-400 leading-relaxed">
                         <p class="mb-2"><strong>Suplemento Alimentario.</strong></p>
-                        <p>Su uso no es recomendable para consumo por menores de 8 años, embarazadas y nodrizas, salvo indicación profesional competente y no reemplaza a una alimentación balanceada.</p>
+                        <p>No consumir más de una porción diaria. Puede contener sésamo, gluten, soya, leche y huevo. No se recomienda para menores de 15 años, durante el embarazo ni la lactancia. No reemplaza una alimentación equilibrada.</p>
                     </div>
                 </div>
             </div>
             
             <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
-                <p>&copy; 2024 RENÖVA+. Todos los derechos reservados.</p>
+                <p>&copy; 2026 RENÖVA+. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
@@ -679,156 +578,17 @@
         <div class="bg-white text-slate-800 text-xs font-semibold px-3 py-1.5 rounded-lg shadow-md mb-2 border border-slate-100 hidden sm:block">
             ¿Tienes dudas?
         </div>
-        <button class="wa-btn tap-highlight-transparent w-14 h-14 sm:w-16 sm:h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-105 transition-transform animate-pulse-soft focus:outline-none focus:ring-4 focus:ring-green-300/50"
+        <a class="wa-btn tap-highlight-transparent w-14 h-14 sm:w-16 sm:h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-105 transition-transform animate-pulse-soft focus:outline-none focus:ring-4 focus:ring-green-300/50"
                 aria-label="Contactar por WhatsApp"
                 data-wa-msg="Hola Cristian, estoy viendo la página de RENÖVA+ y tengo una consulta."
-                data-source="floating">
+                data-source="floating" href="https://wa.me/56995414090?text=Hola%20Cristian%2C%20estoy%20viendo%20la%20p%C3%A1gina%20de%20REN%C3%96VA%2B%20y%20tengo%20una%20consulta.">
             <!-- WhatsApp Icon SVG -->
             <svg class="w-7 h-7 sm:w-8 sm:h-8 ml-0.5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
             </svg>
-        </button>
+        </a>
     </div>
 
-    <!-- Scripts -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            // ==========================================
-            // WHATSAPP ROUTING & TRACKING
-            // ==========================================
-            
-            // Reemplaza esta variable si el número cambia
-            const WHATSAPP_NUMBER = "56995414090"; 
-            
-            // Función para trackear el clic (preparada para Meta Pixel/GTM)
-            function trackWhatsAppClick(source) {
-                // Logueo para verificar que funciona
-                console.log(`Clic hacia WhatsApp. Origen: ${source}`);
-                
-                // Si usas Google Tag Manager, descomenta esto:
-                // window.dataLayer.push({
-                //     'event': 'click_whatsapp',
-                //     'click_source': source
-                // });
-
-                // Registrar un contacto por clic sin bloquear la apertura de WhatsApp.
-                try {
-                    if (typeof fbq === 'function') {
-                        fbq('track', 'Contact', {
-                            content_name: 'WhatsApp Renova 360'
-                        });
-                    }
-                } catch (error) {
-                    console.warn('No se pudo registrar Contact en Meta Pixel.', error);
-                }
-            }
-
-            // Asignar el evento a todos los botones con clase 'wa-btn'
-            const waButtons = document.querySelectorAll('.wa-btn');
-            
-            waButtons.forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    
-                    const msg = btn.getAttribute('data-wa-msg') || 'Hola, tengo una consulta sobre RENÖVA+';
-                    const source = btn.getAttribute('data-source') || 'unknown';
-                    
-                    // Ejecutar tracking
-                    trackWhatsAppClick(source);
-                    
-                    // Codificar mensaje y abrir WhatsApp
-                    const encodedMsg = encodeURIComponent(msg);
-                    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMsg}`;
-                    
-                    window.open(url, '_blank');
-                });
-            });
-
-            // A visible contact CTA already offers WhatsApp; avoid covering it.
-            const floatingContact = document.querySelector('.whatsapp-floating');
-            if (floatingContact && 'IntersectionObserver' in window) {
-                const visibleContactButtons = new Set();
-                const contactObserver = new IntersectionObserver(entries => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting && entry.intersectionRatio >= 0.75) {
-                            visibleContactButtons.add(entry.target);
-                        } else {
-                            visibleContactButtons.delete(entry.target);
-                        }
-                    });
-                    floatingContact.classList.toggle('is-hidden', visibleContactButtons.size > 0);
-                }, { threshold: [0, 0.75], rootMargin: '-64px 0px 0px 0px' });
-                document.querySelectorAll('.wa-btn, a.buy-btn').forEach(btn => {
-                    if (!btn.closest('nav') && !btn.closest('.mobile-buy-bar') && !floatingContact.contains(btn)) {
-                        contactObserver.observe(btn);
-                    }
-                });
-            }
-
-            // Track checkout intent; native links keep navigation independent of tracking.
-            document.querySelectorAll('a.buy-btn').forEach(link => {
-                link.addEventListener('click', () => {
-                    try {
-                        if (typeof fbq === 'function') {
-                            fbq('track', 'InitiateCheckout', {
-                                content_name: 'RENÖVA+ · 1 Doypack',
-                                value: 49990,
-                                currency: 'CLP',
-                                num_items: 1
-                            });
-                        }
-                    } catch (error) {
-                        console.warn('No se pudo registrar InitiateCheckout.', error);
-                    }
-                });
-            });
-            const buyBar = document.querySelector('.mobile-buy-bar');
-            if (buyBar && 'IntersectionObserver' in window) {
-                const visibleBuyLinks = new Set();
-                const buyObserver = new IntersectionObserver(entries => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting && entry.intersectionRatio >= 0.75) {
-                            visibleBuyLinks.add(entry.target);
-                        } else {
-                            visibleBuyLinks.delete(entry.target);
-                        }
-                    });
-                    buyBar.classList.toggle('is-hidden', visibleBuyLinks.size > 0);
-                }, { threshold: [0, 0.75], rootMargin: '-64px 0px -88px 0px' });
-                document.querySelectorAll('a.buy-btn').forEach(link => {
-                    if (!buyBar.contains(link)) buyObserver.observe(link);
-                });
-            }
-
-            // ==========================================
-            // ACCORDION FAQ LOGIC
-            // ==========================================
-            const accordionBtns = document.querySelectorAll('.accordion-btn');
-
-            accordionBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const expanded = this.getAttribute('aria-expanded') === 'true';
-                    const content = this.nextElementSibling;
-                    
-                    // Close all others
-                    accordionBtns.forEach(otherBtn => {
-                        if (otherBtn !== this) {
-                            otherBtn.setAttribute('aria-expanded', 'false');
-                            otherBtn.nextElementSibling.classList.remove('open');
-                        }
-                    });
-
-                    // Toggle current
-                    this.setAttribute('aria-expanded', !expanded);
-                    if (!expanded) {
-                        content.classList.add('open');
-                    } else {
-                        content.classList.remove('open');
-                    }
-                });
-            });
-        });
-    </script>
+    <script src="checkout.js" defer></script>
 </body>
 </html>

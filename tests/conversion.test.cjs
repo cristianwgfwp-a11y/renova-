@@ -1,0 +1,50 @@
+const {test}=require('node:test');const assert=require('node:assert/strict');const fs=require('node:fs');const vm=require('node:vm');const path=require('node:path');
+const html=fs.readFileSync(path.join(__dirname,'../index.html'),'utf8'), checkout=fs.readFileSync(path.join(__dirname,'../checkout.js'),'utf8');
+const attrs=tag=>Object.fromEntries([...tag.matchAll(/([\w-]+)="([^"]*)"/g)].map(m=>[m[1],m[2]]));
+const contacts=[...html.matchAll(/<a\b[^>]*class="[^"]*\bwa-btn\b[^>]*>/g)].map(m=>attrs(m[0]));
+const sources=['navbar','hero','ingredients','price','id_piel_unas','id_articulaciones','id_rutina','id_ingredientes','price_1','price_3','price_7plus','final_cta','footer','floating'];
+test('all 14 PR5 contact paths and 3 V3 contact paths have native encoded WhatsApp URLs',()=>{
+ assert.equal(contacts.length,17);for(const source of [...sources,'seller','multiple_units','order_confirmation'])assert.equal(contacts.filter(a=>a['data-source']===source).length,1,source);
+ for(const a of contacts){const url=new URL(a.href);assert.equal(url.origin,'https://wa.me');assert.equal(url.pathname,'/56995414090');assert.equal(url.searchParams.get('text'),a['data-wa-msg']);assert.ok(!a.target);}
+ assert.doesNotMatch(html,/<button\b[^>]*class="[^"]*wa-btn/);assert.doesNotMatch(checkout,/window\.open/);
+});
+test('one Pixel init and PageView; Contact, Lead and checkout retained; no invented purchase event',()=>{
+ assert.equal((html.match(/fbq\('init', '1616701470198212'\)/g)||[]).length,1);assert.equal((html.match(/fbq\('track', 'PageView'\)/g)||[]).length,1);
+ for(const e of ['Contact','Lead','InitiateCheckout'])assert.ok(checkout.includes("track('"+e+"'"));
+ assert.doesNotMatch(html+checkout,/['"]Purchase['"]/);
+});
+test('all scripts parse',()=>{for(const s of html.matchAll(/<script[^>]*>([\s\S]*?)<\/script>/g))new vm.Script(s[1]);new vm.Script(checkout);});
+test('form remains Netlify POST with honeypot, consent, address and campaign fields',()=>{assert.match(html, /name="pedido-renova"[^>]*method="POST"[^>]*action="\/pedido-recibido.html"[^>]*data-netlify="true"/);for(const name of ['form-name','bot-field','nombre','apellido','telefono','email','region','comuna','direccion','numero','privacidad','referencia','utm_source','utm_medium','utm_campaign','utm_content','fbclid'])assert.ok(html.includes('name="'+name+'"'),name);assert.ok(fs.existsSync(path.join(__dirname,'../pedido-recibido.html')));});
+test('price and actual payment destination preserved; confirmed nationwide free delivery is consistent',()=>{assert.match(html,/\$49\.990/);assert.match(html,/id="payment-link" href="https:\/\/mpago.la\/1StdMG6"/);assert.match(html,/Envío gratis a todo Chile/);assert.match(checkout,/Envío gratis a todo Chile/);assert.doesNotMatch(html+checkout,/Consulta el costo|coordina costo|no está incluido|no están incluidos|24 horas|48 horas/i);assert.match(html,/name="envio_clp" value="0"/);assert.match(html,/name="total_clp" value="49990"/);});
+
+test('mobile hierarchy retains the original product assets and compact trust without removing optional data',()=>{
+ assert.match(html,/<strong class="shipping-badge">ENVÍO GRATIS A TODO CHILE<\/strong>/);
+ assert.doesNotMatch(html+checkout,/El vendedor asume el costo del despacho/i);
+ assert.match(html,/<source srcset="renova.webp"/);assert.match(html,/<img src="renova.png"/);
+ assert.match(html,/<details class="address-reference full-field">/);
+ assert.match(html,/<textarea id="comentario" name="comentario"/);
+ const trust=html.match(/<ul class="trust-strip">([\s\S]*?)<\/ul>/)[1];assert.equal((trust.match(/<li>/g)||[]).length,3);
+});
+test('physical label presentation, nutrition and cautions are consistent',()=>{
+ assert.match(html,/21 sobres individuales de 15 g/);
+ assert.match(html,/Contenido total: 315 g/);
+ assert.match(html,/11,4 g de proteínas por porción de 15 g/);
+ assert.match(html,/Disuelve el contenido de un sobre de 15 g en aproximadamente 250 ml de agua/);
+ assert.match(html,/No consumir más de una porción diaria/);
+ assert.match(html,/Puede contener sésamo, gluten, soya, leche y huevo/);
+ assert.match(html,/No se recomienda para menores de 15 años, durante el embarazo ni la lactancia/);
+ assert.doesNotMatch(html,/menores de 8 años|salvo indicación profesional|11,4\s?g de proteína de colágeno/);
+ assert.match(html,/name="producto" value="RENÖVA\+ · 1 doypack · 21 sobres individuales de 15 g · 315 g · Sabor berries"/);
+});
+test('SEO and sharing metadata use the confirmed presentation and original product image',()=>{
+ const description=html.match(/name="description" content="([^"]+)"/)[1];
+ const ogDescription=html.match(/property="og:description" content="([^"]+)"/)[1];
+ for(const value of [description,ogDescription]){
+  for(const text of ['21 sobres individuales de 15 g','315 g','$49.990 CLP','envío gratis a todo Chile'])assert.ok(value.includes(text),text);
+  assert.doesNotMatch(value,/proteína de colágeno|11,4 g.*Peptan/i);
+ }
+ assert.match(html,/rel="canonical" href="https:\/\/renova-360.netlify.app\/"/);
+ assert.match(html,/property="og:url" content="https:\/\/renova-360.netlify.app\/"/);
+ assert.match(html,/property="og:image" content="https:\/\/renova-360.netlify.app\/renova.png"/);
+ assert.ok(fs.existsSync(path.join(__dirname,'../renova.png')));
+});
