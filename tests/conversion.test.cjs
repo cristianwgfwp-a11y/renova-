@@ -36,3 +36,15 @@ test('physical label presentation, nutrition and cautions are consistent',()=>{
  assert.doesNotMatch(html,/menores de 8 años|salvo indicación profesional|11,4\s?g de proteína de colágeno/);
  assert.match(html,/name="producto" value="RENÖVA\+ · 1 doypack · 21 sobres individuales de 15 g · 315 g · Sabor berries"/);
 });
+test('SEO and sharing metadata use the confirmed presentation and original product image',()=>{
+ const description=html.match(/name="description" content="([^"]+)"/)[1];
+ const ogDescription=html.match(/property="og:description" content="([^"]+)"/)[1];
+ for(const value of [description,ogDescription]){
+  for(const text of ['21 sobres individuales de 15 g','315 g','$49.990 CLP','envío gratis a todo Chile'])assert.ok(value.includes(text),text);
+  assert.doesNotMatch(value,/proteína de colágeno|11,4 g.*Peptan/i);
+ }
+ assert.match(html,/rel="canonical" href="https:\/\/renova-360.netlify.app\/"/);
+ assert.match(html,/property="og:url" content="https:\/\/renova-360.netlify.app\/"/);
+ assert.match(html,/property="og:image" content="https:\/\/renova-360.netlify.app\/renova.png"/);
+ assert.ok(fs.existsSync(path.join(__dirname,'../renova.png')));
+});
