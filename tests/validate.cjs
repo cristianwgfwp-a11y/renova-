@@ -170,6 +170,7 @@ async function run() {
     await page.locator('#order-confirmation').screenshot({ path: path.join(output, 'order-card-local.png') });
     assert.equal(submissions.length, 2, 'One failed request and one success; pending submit cannot duplicate');
     const order = submissions.at(-1);
+    assert.equal(order.producto, 'RENÖVA+ · 1 doypack · 21 sobres individuales de 15 g · 315 g · Sabor berries');
     assert.equal(order.comentario,'TEST referencia opcional conservada'); assert.equal(order['form-name'], 'pedido-renova'); assert.equal(order.region, 'Coquimbo');
     assert.equal(order.comuna, 'Coquimbo'); assert.equal(order.privacidad, 'Acepto');
     assert.equal(order.referencia, retryReference); assert.match(order.referencia, /^RNV-[A-F0-9]{12}$/);

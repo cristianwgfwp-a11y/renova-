@@ -19,9 +19,20 @@ test('price and actual payment destination preserved; confirmed nationwide free 
 
 test('mobile hierarchy retains the original product assets and compact trust without removing optional data',()=>{
  assert.match(html,/<strong class="shipping-badge">ENVÍO GRATIS A TODO CHILE<\/strong>/);
- assert.doesNotMatch(html+checkout,/El vendedor asume el costo del despacho/);
+ assert.doesNotMatch(html+checkout,/El vendedor asume el costo del despacho/i);
  assert.match(html,/<source srcset="renova.webp"/);assert.match(html,/<img src="renova.png"/);
  assert.match(html,/<details class="address-reference full-field">/);
  assert.match(html,/<textarea id="comentario" name="comentario"/);
  const trust=html.match(/<ul class="trust-strip">([\s\S]*?)<\/ul>/)[1];assert.equal((trust.match(/<li>/g)||[]).length,3);
+});
+test('physical label presentation, nutrition and cautions are consistent',()=>{
+ assert.match(html,/21 sobres individuales de 15 g/);
+ assert.match(html,/Contenido total: 315 g/);
+ assert.match(html,/11,4 g de proteínas por porción de 15 g/);
+ assert.match(html,/Disuelve el contenido de un sobre de 15 g en aproximadamente 250 ml de agua/);
+ assert.match(html,/No consumir más de una porción diaria/);
+ assert.match(html,/Puede contener sésamo, gluten, soya, leche y huevo/);
+ assert.match(html,/No se recomienda para menores de 15 años, durante el embarazo ni la lactancia/);
+ assert.doesNotMatch(html,/menores de 8 años|salvo indicación profesional|11,4\s?g de proteína de colágeno/);
+ assert.match(html,/name="producto" value="RENÖVA\+ · 1 doypack · 21 sobres individuales de 15 g · 315 g · Sabor berries"/);
 });
